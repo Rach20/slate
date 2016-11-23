@@ -30,7 +30,7 @@ Android projects quite often rely on 3rd party libraries and SDKs, and have thie
 
 You need to add these 3rd party dependencies to a file named build.gradle(Module:app) which is present by default in Android (Refer to the image, the file is highlighted in blue). This file is located in a folder named 'app'.
 
-![File Location to Add Dependencies](2.png)
+![File Location to Add Dependencies](https://github.com/Rach20/slate/blob/master/source/images/2.png)
 
 
 ## Dependencies to be Added
@@ -46,13 +46,13 @@ compile(name:'voc­sdk­release­{version}', ext:'aar') <br>
 
 The requirement is that, the project should be implementing API 15 or greater. These dependencies include Google Play services, Google Cloud Messaging and all the dependencies required for PCD.
 
-![Dependencies to be Added](3.png)
+![Dependencies to be Added](https://github.com/Rach20/slate/blob/master/source/images/3.png)
 
 ## Component Details File
 
 All the details of the components being used in the project are present in a file known as AndroidManifest.xml, which is more like an index. It contains information about all the Activity, Broadcast Receiver, User Permissions and more.. To locate this file, you need to navigate to app>src>main.
 
-![Component Details File](4.png)
+![Component Details File](https://github.com/Rach20/slate/blob/master/source/images/4.png)
 
 ## Add Permissions
 
@@ -67,7 +67,7 @@ uses-permission android:name="android.permission.ACCESS_WIFI_STATE"
 uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
 </code>
 
-![Add Permissions](5.png)
+![Add Permissions](https://github.com/Rach20/slate/blob/master/source/images/5.png)
 
 ## Add a Receiver and a Provider
 
@@ -75,7 +75,7 @@ For the SDK to work correctly, we need to add a receiver to listen to Voc Status
 
 It can be added in _AndroidManifest.xml_ inside the application tag.
 
-![Add a Receiver and a Provider](66.png)
+![Add a Receiver and a Provider](https://github.com/Rach20/slate/blob/master/source/images/66.png)
 
 #iOS
 
@@ -89,7 +89,7 @@ For registration, a **PCD SDK license key** is a mandate.
 
 The application's product name **(Project → Choose target → Build Settings → Packaging → Product name)** must match the name provided on the PCD Web portal SDK license page. The portal field for this is **"iOS Application ID."** The app must enable Background Execution and Remote Notifications in order to preposition the content.
 
-![Prerequisites](7.png)
+![Prerequisites](https://github.com/Rach20/slate/blob/master/source/images/7.png)
 
 ## Add the framework
 
@@ -101,7 +101,7 @@ The application's product name **(Project → Choose target → Build Settings �
   - Click **Add Files** to
   - Choose **~/myproject/VocSdk.framework**
 
- ![Add the framework](8.png)
+ ![Add the framework](https://github.com/Rach20/slate/blob/master/source/images/8.png)
 
 ## Link the SDK to the project
 
@@ -112,7 +112,7 @@ Click the **General tab.**
 Under **Embedded Binaries,** click '+' and choose **VocSdk.framework**
 Click Add.
 
-![Link the SDK to the project](9.png)
+![Link the SDK to the project](https://github.com/Rach20/slate/blob/master/source/images/9.png)
 
 ## Add a build phase to Project settings
 
@@ -141,7 +141,7 @@ The script will copy the correct VocSdk.framework to /myproject/ folder at the s
 
 This is how the build phase will finally look.
 
-![Add a build phase to Project settings](10.png)
+![Add a build phase to Project settings](https://github.com/Rach20/slate/blob/master/source/images/10.png)
 
 ## Integrate your iOS
 
@@ -180,7 +180,7 @@ return NO; <br>
 } 
 </code>
 
-![Integrate your iOS](11.png)
+![Integrate your iOS](https://github.com/Rach20/slate/blob/master/source/images/11.png)
 
 
 Need Help? 
