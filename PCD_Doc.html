@@ -140,7 +140,7 @@
 <p>You need to add these 3rd party dependencies to a file named build.gradle(Module:app) which is present by default in Android (Refer to the image, the file is highlighted in blue). This file is located in a folder named &lsquo;app&rsquo;.</p>
 
 <blockquote>
-<p>Example code for Android</p>
+<p>Code Snippet</p>
 </blockquote>
 <pre class="highlight shell"><code>apply plugin: <span class="s1">'com.android.application'</span>
 
@@ -189,7 +189,7 @@ compile(name:&#39;voc­sdk­release­{version}&#39;, ext:&#39;aar&#39;) <br>
 <p>The requirement is that, the project should be implementing API 15 or greater. These dependencies include Google Play services, Google Cloud Messaging and all the dependencies required for PCD.</p>
 
 <blockquote>
-<p>Example code for Android</p>
+<p>Code Snippet</p>
 </blockquote>
 <pre class="highlight shell"><code>apply plugin: <span class="s1">'com.android.application'</span>
 
@@ -216,9 +216,10 @@ android <span class="o">{</span>
 
 
 dependencies <span class="o">{</span>
-  compile fileTree<span class="o">(</span>dir: <span class="s1">'libs'</span>, include: <span class="o">[</span><span class="s1">'*.jar'</span><span class="o">])</span>
-  testCompile <span class="s1">'junit:junit:4.12'</span>
-  compile <span class="s1">'com.android.support:appcompat-v7:24.2.0'</span>
+compile <span class="s1">'com.google.android.gms:playservicesbase:7.0.0'</span>
+compile <span class="s1">'com.google.android.gms:playservicesgcm:7.0.0'</span>
+compile <span class="s1">'com.google.android.gms:playservicesads:7.0.0'</span>
+compile<span class="o">(</span>name:<span class="s1">'voc­sdk­release­{version}'</span>, ext:<span class="s1">'aar'</span><span class="o">)</span>
 <span class="o">}</span>
 </code></pre>
 
@@ -227,40 +228,6 @@ dependencies <span class="o">{</span>
 <h2 id="component-details-file">Component Details File</h2>
 
 <p>All the details of the components being used in the project are present in a file known as AndroidManifest.xml, which is more like an index. It contains information about all the Activity, Broadcast Receiver, User Permissions and more.. To locate this file, you need to navigate to app&gt;src&gt;main.</p>
-
-<blockquote>
-<p>Example code for Android</p>
-</blockquote>
-<pre class="highlight shell"><code>apply plugin: <span class="s1">'com.android.application'</span>
-
-
-android <span class="o">{</span>
-  compileSdkVersion 24
-  buildToolsVersion <span class="s2">"24.0.1"</span>
-
-
-  defaultConfig <span class="o">{</span>
-      applicationId <span class="s2">"akamai.sdk.demo"</span>
-      minSdkVersion 15
-      targetSdkVersion 24
-      versionCode 1
-      versionName <span class="s2">"1.0"</span>
-  <span class="o">}</span>
-  buildTypes <span class="o">{</span>
-      release <span class="o">{</span>
-          minifyEnabled <span class="nb">false
-          </span>proguardFiles getDefaultProguardFile<span class="o">(</span><span class="s1">'proguard-android.txt'</span><span class="o">)</span>, <span class="s1">'proguard-rules.pro'</span>
-      <span class="o">}</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-
-
-dependencies <span class="o">{</span>
-  compile fileTree<span class="o">(</span>dir: <span class="s1">'libs'</span>, include: <span class="o">[</span><span class="s1">'*.jar'</span><span class="o">])</span>
-  testCompile <span class="s1">'junit:junit:4.12'</span>
-  compile <span class="s1">'com.android.support:appcompat-v7:24.2.0'</span>
-<span class="o">}</span>
-</code></pre>
 
 <p><img alt="Component Details File" src="images/4.png" /></p>
 
@@ -271,15 +238,9 @@ dependencies <span class="o">{</span>
 <p>Following are the permissions:</p>
 
 <blockquote>
-<p>Example code for Android </p>
+<p>Code Snippet </p>
 </blockquote>
-<pre class="highlight plaintext"><code>&lt;code&gt;
-uses-permission android:name="android.permission.INTERNET"
-uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"
-uses-permission android:name="android.permission.ACCESS_WIFI_STATE"
-uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-&lt;/code&gt;
-
+<pre class="highlight plaintext"><code>
 &lt;?xml version="1.0" encoding="utf-8"?&gt;
 &lt;manifest xmlns:android="http://schemas.android.com/apk/res/android"
   package="akamai.sdk.demo"&gt;
@@ -289,12 +250,8 @@ uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
   &lt;uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /&gt;
   &lt;uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /&gt;
 
-  &lt;uses­permission android:name="android.permission.INTERNET" /&gt;
-  &lt;uses­permission android:name="android.permission.ACCESS_NETWORK_STATE" /&gt;
-  &lt;uses­permission android:name="android.permission.ACCESS_WIFI_STATE" /&gt;
-  &lt;uses­permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /&gt;
 
-  &lt;cation
+  &lt;application
       android:allowBackup="true"
       android:icon="@mipmap/ic_launcher"
       android:label="@string/app_name"
@@ -329,53 +286,21 @@ uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
 <p>It can be added in <em>AndroidManifest.xml</em> inside the application tag.</p>
 
 <blockquote>
-<p>Example code for Android </p>
+<p>Code Snippet </p>
 </blockquote>
-<pre class="highlight plaintext"><code>&lt;code&gt;
-uses-permission android:name="android.permission.INTERNET"
-uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"
-uses-permission android:name="android.permission.ACCESS_WIFI_STATE"
-uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-&lt;/code&gt;
-
-&lt;?xml version="1.0" encoding="utf-8"?&gt;
-&lt;manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="akamai.sdk.demo"&gt;
-
-  &lt;uses-permission android:name="android.permission.INTERNET" /&gt;
-  &lt;uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /&gt;
-  &lt;uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /&gt;
-  &lt;uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /&gt;
-
-  &lt;uses­permission android:name="android.permission.INTERNET" /&gt;
-  &lt;uses­permission android:name="android.permission.ACCESS_NETWORK_STATE" /&gt;
-  &lt;uses­permission android:name="android.permission.ACCESS_WIFI_STATE" /&gt;
-  &lt;uses­permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /&gt;
-
-  &lt;cation
-      android:allowBackup="true"
-      android:icon="@mipmap/ic_launcher"
-      android:label="@string/app_name"
-      android:supportsRtl="true"
-      android:theme="@style/AppTheme"&gt;
-      &lt;activity android:name=".MainActivity"&gt;
-          &lt;intent-filter&gt;
-              &lt;action android:name="android.intent.action.MAIN" /&gt;
+<pre class="highlight plaintext"><code>&lt;receiver
+android:name="akamai.sdk.demo.VocBroadcastReceiver"&gt;
+&lt;intent­filter&gt;
+&lt;action android:name="com.akamai.android.sdk.ACTION_VOC_STATUS" /&gt;
+&lt;category android:name="akamai.sdk.demo" /&gt;
+&lt;/intent­filter&gt;
+&lt;/receiver&gt;
 
 
-              &lt;category android:name="android.intent.category.LAUNCHER"
-
-    &lt;!--  {ApplicationId} should be replaced with the client app package name , example com.domain.applicationname
-
-
-            A receiver to listen to Voc Status messages --&gt;
-
-/&gt;
-          &lt;/intent-filter&gt;
-      &lt;/activity&gt;
-  &lt;/application&gt;
-
-&lt;/manifest&gt;
+&lt;provider
+android:name="com.akamai.android.sdk.db.AnaContentProvider"
+android:authorities="akamai.sdk.demo.AnaContentProvider" &gt;
+&lt;/provider&gt;
 </code></pre>
 
 <p><img alt="Add a Receiver and a Provider" src="images/66.png" /></p>

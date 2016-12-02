@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>PCD Documentation</title>
+    <title>API_PCD Documentation</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -317,7 +317,7 @@ Response 400 (application/json)
 
 <p><code> POST /ingest/v1/getContentCategories </code></p>
 
-<p><em>URI Parameters:</em> <em>content_provider_id,access</em>token_</p>
+<p><em>URI Parameters:</em> content_provider_id,access_token</p>
 
 <table><thead>
 <tr>
@@ -536,7 +536,7 @@ Body: <br>
 } 
 </code></p>
 
-<p>URI Parameters: <em>content_provider_id,access</em>token_</p>
+<p>URI Parameters: content_provider_id,access_token</p>
 
 <table><thead>
 <tr>
@@ -719,18 +719,18 @@ Body<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&quot;content_title&quot;: &quot;string - Title associated with the content&quot;,<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&quot;streams&quot;: [<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>objects of this format</em><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;url&quot;: &quot;string - mp4 url of content&quot;,<br> 
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;type&quot;: &quot;mp4&quot;<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;size&quot;: &quot;string - length of mp4 in bytes&quot;<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;url&quot;: &quot;string - mp4 url of content&quot;,<br> 
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;type&quot;: &quot;mp4&quot;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;size&quot;: &quot;string - length of mp4 in bytes&quot;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>AND/OR objects of this format</em><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;preferred_stream&quot;: &quot;bitrate to choose from the m3u8 file&quot;,<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;url&quot;: &quot;string = url of m3u8 file&quot;,<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;type&quot;: &quot;m3u8&quot;,<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;size&quot;: &quot;length of stream in bytes&quot;<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;preferred_stream&quot;: &quot;bitrate to choose from the m3u8 file&quot;,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;url&quot;: &quot;string = url of m3u8 file&quot;,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;type&quot;: &quot;m3u8&quot;,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;size&quot;: &quot;length of stream in bytes&quot;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&quot;publication_timestamp&quot;: &quot;string &quot;YYYY-MM-DD HH:MM:SS&quot;,<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&quot;thumb_width&quot;: integeger - thumbnail width,<br>
