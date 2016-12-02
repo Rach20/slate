@@ -24,11 +24,7 @@ To generate a key from Google's firebase console using GCM in android app, follo
 * It will give you a server-key that will be used by backend developers when creating push requests
 * You also need to save the Sender ID given here that will be used on Android for receiving push notifications.
 
-<<<<<<< HEAD
 ![Prerequisites for using the SDK](1.png)
-=======
-![Prerequisites for using the SDK](https://github.com/Rach20/slate/blob/master/source/images/1.png)
->>>>>>> f1c8b99ae3d6d53762b8610c9d741b2293440b32
 
 
 ## File Location to Add Dependencies
@@ -37,7 +33,6 @@ Android projects quite often rely on 3rd party libraries and SDKs, and have thie
 
 You need to add these 3rd party dependencies to a file named build.gradle(Module:app) which is present by default in Android (Refer to the image, the file is highlighted in blue). This file is located in a folder named 'app'.
 
-<<<<<<< HEAD
 > Example code for Android
 
 ``` shell
@@ -74,9 +69,6 @@ dependencies {
 
 
 ![File Location to Add Dependencies](2.png)
-=======
-![File Location to Add Dependencies](https://github.com/Rach20/slate/blob/master/source/images/2.png)
->>>>>>> f1c8b99ae3d6d53762b8610c9d741b2293440b32
 
 
 ## Dependencies to be Added
@@ -92,7 +84,6 @@ compile(name:'voc­sdk­release­{version}', ext:'aar') <br>
 
 The requirement is that, the project should be implementing API 15 or greater. These dependencies include Google Play services, Google Cloud Messaging and all the dependencies required for PCD.
 
-<<<<<<< HEAD
 > Example code for Android
 
 ``` shell
@@ -128,15 +119,11 @@ dependencies {
 ```
 
 ![Dependencies to be Added](3.png)
-=======
-![Dependencies to be Added](https://github.com/Rach20/slate/blob/master/source/images/3.png)
->>>>>>> f1c8b99ae3d6d53762b8610c9d741b2293440b32
 
 ## Component Details File
 
 All the details of the components being used in the project are present in a file known as AndroidManifest.xml, which is more like an index. It contains information about all the Activity, Broadcast Receiver, User Permissions and more.. To locate this file, you need to navigate to app>src>main.
 
-<<<<<<< HEAD
 > Example code for Android
 
 ``` shell
@@ -172,9 +159,6 @@ dependencies {
 ```
 
 ![Component Details File](4.png)
-=======
-![Component Details File](https://github.com/Rach20/slate/blob/master/source/images/4.png)
->>>>>>> f1c8b99ae3d6d53762b8610c9d741b2293440b32
 
 ## Add Permissions
 
@@ -192,7 +176,6 @@ uses-permission android:name="android.permission.ACCESS_WIFI_STATE"
 uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
 </code>
 
-<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
   package="akamai.sdk.demo">
@@ -235,9 +218,6 @@ uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
 
 
 ![Add Permissions](5.png)
-=======
-![Add Permissions](https://github.com/Rach20/slate/blob/master/source/images/5.png)
->>>>>>> f1c8b99ae3d6d53762b8610c9d741b2293440b32
 
 ## Add a Receiver and a Provider
 
@@ -245,7 +225,6 @@ For the SDK to work correctly, we need to add a receiver to listen to Voc Status
 
 It can be added in _AndroidManifest.xml_ inside the application tag.
 
-<<<<<<< HEAD
 > Example code for Android 
 
 ``` Shell
@@ -297,9 +276,6 @@ uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
 ```
 
 ![Add a Receiver and a Provider](66.png)
-=======
-![Add a Receiver and a Provider](https://github.com/Rach20/slate/blob/master/source/images/66.png)
->>>>>>> f1c8b99ae3d6d53762b8610c9d741b2293440b32
 
 #iOS
 
@@ -313,11 +289,7 @@ For registration, a **PCD SDK license key** is a mandate.
 
 The application's product name **(Project → Choose target → Build Settings → Packaging → Product name)** must match the name provided on the PCD Web portal SDK license page. The portal field for this is **"iOS Application ID."** The app must enable Background Execution and Remote Notifications in order to preposition the content.
 
-<<<<<<< HEAD
 ![Prerequisites](7.png)
-=======
-![Prerequisites](https://github.com/Rach20/slate/blob/master/source/images/7.png)
->>>>>>> f1c8b99ae3d6d53762b8610c9d741b2293440b32
 
 ## Add the framework
 
@@ -329,11 +301,7 @@ The application's product name **(Project → Choose target → Build Settings �
   - Click **Add Files** to
   - Choose **~/myproject/VocSdk.framework**
 
-<<<<<<< HEAD
   ![Add the framework](8.png)
-=======
- ![Add the framework](https://github.com/Rach20/slate/blob/master/source/images/8.png)
->>>>>>> f1c8b99ae3d6d53762b8610c9d741b2293440b32
 
 ## Link the SDK to the project
 
@@ -344,11 +312,7 @@ Click the **General tab.**
 Under **Embedded Binaries,** click '+' and choose **VocSdk.framework**
 Click Add.
 
-<<<<<<< HEAD
 ![Link the SDK to the project](9.png)
-=======
-![Link the SDK to the project](https://github.com/Rach20/slate/blob/master/source/images/9.png)
->>>>>>> f1c8b99ae3d6d53762b8610c9d741b2293440b32
 
 ## Add a build phase to Project settings
 
@@ -377,11 +341,7 @@ The script will copy the correct VocSdk.framework to /myproject/ folder at the s
 
 This is how the build phase will finally look.
 
-<<<<<<< HEAD
 ![Add a build phase to Project settings](10.png)
-=======
-![Add a build phase to Project settings](https://github.com/Rach20/slate/blob/master/source/images/10.png)
->>>>>>> f1c8b99ae3d6d53762b8610c9d741b2293440b32
 
 ## Integrate your iOS
 
@@ -423,11 +383,7 @@ return NO;
 
 ```
 
-<<<<<<< HEAD
 ![Integrate your iOS](11.png)
-=======
-![Integrate your iOS](https://github.com/Rach20/slate/blob/master/source/images/11.png)
->>>>>>> f1c8b99ae3d6d53762b8610c9d741b2293440b32
 
 
 Need Help? 
