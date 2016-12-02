@@ -109,6 +109,32 @@ Parameter | Required | Description
 access_token | true | Access token associated with each provider
 content_provider_id | true | ID associated with each provider
 
+> Example Code for Getting a Category List:
+
+```php
+<?php
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+CURLOPT_URL => "https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/getContentCategories",
+CURLOPT_RETURNTRANSFER => true,
+CURLOPT_CUSTOMREQUEST => "POST",
+CURLOPT_POSTFIELDS => "{\"content_provider_id\": \"akamai_internal\",\"access_token\": \"B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE\"}",
+CURLOPT_HTTPHEADER => array(
+"content-type: application/json"
+)
+));
+
+$response = curl_exec($curl);
+?> 
+```
+
+```shell
+curl -X POST -H "Content-Type: application/json" -d 
+'{"content_provider_id": "akamai_internal",
+"access_token": "B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE" 
+}' "https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/getContentCategories"
+```
 ### RETURN CODES
 
 The following table provides a list of possible return codes:
@@ -174,33 +200,6 @@ Body<br>
 "return_code": "Unknown" <br>
 }
 </code>
-
-> Example Code for Getting a Category List:
-
-```php
-<?php
-$curl = curl_init();
-
-curl_setopt_array($curl, array(
-CURLOPT_URL => "https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/getContentCategories",
-CURLOPT_RETURNTRANSFER => true,
-CURLOPT_CUSTOMREQUEST => "POST",
-CURLOPT_POSTFIELDS => "{\"content_provider_id\": \"akamai_internal\",\"access_token\": \"B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE\"}",
-CURLOPT_HTTPHEADER => array(
-"content-type: application/json"
-)
-));
-
-$response = curl_exec($curl);
-?> 
-```
-
-```shell
-curl -X POST -H "Content-Type: application/json" -d 
-'{"content_provider_id": "akamai_internal",
-"access_token": "B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE" 
-}' "https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/getContentCategories"
-```
 
 #### Result:
 
@@ -328,8 +327,6 @@ curl -X POST -H "Content-Type: application/json"" -d '{"content_provider_id": "a
 "publication_timestamp": "2016-08-09",
 "thumb_url": "http://tools.watch-now.co/a-lL66tBZZA/video.jpg"}' "https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/addContent"
 ```
-
-
 ### RETURN CODES
 
 The following table provides a list of possible return codes:
@@ -345,7 +342,6 @@ HTTP Status | Error Code | Description
 403 | No variants of content provided | No mp4 or m3u8 variants of the content were provided.
 422 | Duplicate | The provider attempted to add a piece of content with a unique ID that already resides in the database.
 500 | Unknown | An unknown error occurred while processing the request.
-
 
 ### Request
 
@@ -482,6 +478,31 @@ streams | true | Format of objects (mp4 or m3u8)
 publication_timestamp | true | Published date of the content
 thumb_url | true | HTTP URL associated with the thumbnail
 
+> Example Code - Updating Content Metadata By ID
+
+```php
+<?php
+$curl = curl_init();
+curl_setopt_array($curl, array(
+CURLOPT_URL => "https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/updateContentById",
+CURLOPT_RETURNTRANSFER => true,
+CURLOPT_CUSTOMREQUEST => "POST",
+CURLOPT_POSTFIELDS => "{\"content_provider_id\": \"akamai_internal\",\"content_id\":346708,\"access_token\": \"B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE\",\"content_title\": \"Akamai-Edge 2016\"}",
+CURLOPT_HTTPHEADER => array(
+"content-type: application/json"
+)
+));
+
+$response = curl_exec($curl);
+?>
+```
+
+```shell
+curl -X POST -H "Content-Type: application/json" -d '{"content_provider_id": "akamai_internal",
+"content_id":346708,
+"access_token": "B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE",
+"content_title": "Akamai-Edge 2016"}' "https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/updateContentById"
+```
 
 ### RETURN CODES
 
@@ -592,33 +613,6 @@ Body
 }
 </code>
 
-
-> Example Code - Updating Content Metadata By ID
-
-```php
-<?php
-$curl = curl_init();
-curl_setopt_array($curl, array(
-CURLOPT_URL => "https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/updateContentById",
-CURLOPT_RETURNTRANSFER => true,
-CURLOPT_CUSTOMREQUEST => "POST",
-CURLOPT_POSTFIELDS => "{\"content_provider_id\": \"akamai_internal\",\"content_id\":346708,\"access_token\": \"B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE\",\"content_title\": \"Akamai-Edge 2016\"}",
-CURLOPT_HTTPHEADER => array(
-"content-type: application/json"
-)
-));
-
-$response = curl_exec($curl);
-?>
-```
-
-```shell
-curl -X POST -H "Content-Type: application/json" -d '{"content_provider_id": "akamai_internal",
-"content_id":346708,
-"access_token": "B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE",
-"content_title": "Akamai-Edge 2016"}' "https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/updateContentById"
-```
-
 ### Result:
 ### Response200
 
@@ -649,6 +643,35 @@ access_token | true | Access token associated with each provider
 content_provider_id | true | ID associated with each provider
 content_id | true | ID of the content created by the provider
 
+>Example Code for Purging Content By ID:
+
+```php
+<?php
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+CURLOPT_URL => "https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/requestPurgeById",
+CURLOPT_RETURNTRANSFER => true,
+CURLOPT_CUSTOMREQUEST => "POST",
+CURLOPT_POSTFIELDS => "{\"content_provider_id\": \"akamai_internal\",
+\"access_token\": \"B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE\",
+\"content_id\":346708}",
+CURLOPT_HTTPHEADER => array(
+"content-type: application/json"
+)
+));
+
+$response = curl_exec($curl);
+?>
+```
+```shell
+curl -X POST -H "Content-Type: application/json" -d '{
+"content_provider_id": "akamai_internal",
+"access_token": "B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE",
+"content_id":346708
+}' 
+"https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/requestPurgeById"
+```
 
 ### RETURN CODES
 
@@ -717,36 +740,6 @@ Body
 }
 </code>
 
->Example Code for Purging Content By ID:
-
-```php
-<?php
-$curl = curl_init();
-
-curl_setopt_array($curl, array(
-CURLOPT_URL => "https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/requestPurgeById",
-CURLOPT_RETURNTRANSFER => true,
-CURLOPT_CUSTOMREQUEST => "POST",
-CURLOPT_POSTFIELDS => "{\"content_provider_id\": \"akamai_internal\",
-\"access_token\": \"B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE\",
-\"content_id\":346708}",
-CURLOPT_HTTPHEADER => array(
-"content-type: application/json"
-)
-));
-
-$response = curl_exec($curl);
-?>
-```
-```shell
-curl -X POST -H "Content-Type: application/json" -d '{
-"content_provider_id": "akamai_internal",
-"access_token": "B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE",
-"content_id":346708
-}' 
-"https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/requestPurgeById"
-```
-
 ### Result:
 
 ### Response200
@@ -777,6 +770,32 @@ Parameter | Required | Description
 --------- | -------- | ------------
 access_token | true | Access token associated with each provider
 content_provider_id | true | ID associated with each provider
+
+> Example Code for Getting All Content By IDs:
+
+```php
+<?php
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+CURLOPT_URL => "https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/getContentByIds",
+CURLOPT_RETURNTRANSFER => true,
+CURLOPT_CUSTOMREQUEST => "POST",
+CURLOPT_POSTFIELDS => "{\"content_provider_id\": \"akamai_internal\",\"access_token\": \"B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE\"}",
+CURLOPT_HTTPHEADER => array(
+"content-type: application/json"
+)
+));
+$response = curl_exec($curl);
+?>
+```
+```shell
+curl -X POST -H "Content-Type: application/json" -d '{
+"content_provider_id": "akamai_internal",
+"access_token": "B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE",
+"content_id":346708
+}' "https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/getContentByIds"
+```
 
 ### RETURN CODES
 
@@ -847,31 +866,6 @@ Body
 }
 </code>
 
-> Example Code for Getting All Content By IDs:
-
-```php
-<?php
-$curl = curl_init();
-
-curl_setopt_array($curl, array(
-CURLOPT_URL => "https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/getContentByIds",
-CURLOPT_RETURNTRANSFER => true,
-CURLOPT_CUSTOMREQUEST => "POST",
-CURLOPT_POSTFIELDS => "{\"content_provider_id\": \"akamai_internal\",\"access_token\": \"B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE\"}",
-CURLOPT_HTTPHEADER => array(
-"content-type: application/json"
-)
-));
-$response = curl_exec($curl);
-?>
-```
-```shell
-curl -X POST -H "Content-Type: application/json" -d '{
-"content_provider_id": "akamai_internal",
-"access_token": "B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE",
-"content_id":346708
-}' "https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/getContentByIds"
-```
 ### Result:
 ### Response 200
 
@@ -902,6 +896,32 @@ Parameter | Required | Description
 access_token | true | Access token associated with each provider
 content_provider_id | true | ID associated with each provider
 content_id | true | ID of the content created by the provider
+
+> Example code for Getting Content Metadata By IDs:
+
+```php
+<?php
+$curl = curl_init();
+curl_setopt_array($curl, array(
+CURLOPT_URL => "https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/getContentById",
+CURLOPT_RETURNTRANSFER => true,
+CURLOPT_CUSTOMREQUEST => "POST",
+CURLOPT_POSTFIELDS => "{\"content_provider_id\": \"akamai_internal\",\"access_token\": \"B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE\",\"content_id\": \"346708\"}",
+CURLOPT_HTTPHEADER => array(
+"content-type: application/json"
+)
+));
+
+$response = curl_exec($curl);
+?>
+```
+```shell
+curl -X POST -H "Content-Type: application/json" -d '{
+"content_provider_id": "akamai_internal",
+"access_token": "B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE",
+"content_id":346708
+}' "https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/getContentById"
+```
 
 ### RETURN CODES
 
@@ -1010,32 +1030,6 @@ Body
 }
 </code>
 
-> Example code for Getting Content Metadata By IDs:
-
-```php
-<?php
-$curl = curl_init();
-curl_setopt_array($curl, array(
-CURLOPT_URL => "https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/getContentById",
-CURLOPT_RETURNTRANSFER => true,
-CURLOPT_CUSTOMREQUEST => "POST",
-CURLOPT_POSTFIELDS => "{\"content_provider_id\": \"akamai_internal\",\"access_token\": \"B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE\",\"content_id\": \"346708\"}",
-CURLOPT_HTTPHEADER => array(
-"content-type: application/json"
-)
-));
-
-$response = curl_exec($curl);
-?>
-```
-```shell
-curl -X POST -H "Content-Type: application/json" -d '{
-"content_provider_id": "akamai_internal",
-"access_token": "B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE",
-"content_id":346708
-}' "https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/getContentById"
-```
-
 ### Result:
 
 ### Response 200
@@ -1113,6 +1107,34 @@ access_token | true | Access token associated with each provider
 content_provider_id |true | ID associated with each provider
 content_id  | true | ID of the content created by the provider
 
+> Example code for Getting Content Status:
+
+```php
+<?php
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+CURLOPT_URL => "https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/getActivityStatusById",
+CURLOPT_RETURNTRANSFER => true,
+CURLOPT_CUSTOMREQUEST => "POST",
+CURLOPT_POSTFIELDS => "{\"content_provider_id\": \"akamai_internal\",\"access_token\": \"B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE\",\"content_id\": \"346708\"}",
+CURLOPT_HTTPHEADER => array(
+"content-type: application/json"
+)
+));
+
+$response = curl_exec($curl);
+?>
+```
+
+```shell
+curl -X POST -H "Content-Type: application/json" -d '{
+"content_provider_id": "akamai_internal",
+"access_token": "B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE",
+"content_id":346708
+}' "https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/getActivityStatusById"
+```
+
 ### RETURN CODES
 
 The following table provides a list of possible return codes:
@@ -1181,34 +1203,6 @@ Body
 }
 </code>
 
-> Example code for Getting Content Status:
-
-```php
-<?php
-$curl = curl_init();
-
-curl_setopt_array($curl, array(
-CURLOPT_URL => "https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/getActivityStatusById",
-CURLOPT_RETURNTRANSFER => true,
-CURLOPT_CUSTOMREQUEST => "POST",
-CURLOPT_POSTFIELDS => "{\"content_provider_id\": \"akamai_internal\",\"access_token\": \"B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE\",\"content_id\": \"346708\"}",
-CURLOPT_HTTPHEADER => array(
-"content-type: application/json"
-)
-));
-
-$response = curl_exec($curl);
-?>
-```
-
-```shell
-curl -X POST -H "Content-Type: application/json" -d '{
-"content_provider_id": "akamai_internal",
-"access_token": "B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE",
-"content_id":346708
-}' "https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/getActivityStatusById"
-```
-
 ### Result:
 
 ### Response200
@@ -1239,6 +1233,34 @@ Parameter | Required | Description
 access_token | true | Access token associated with each provider
 content_provider_id | true | ID associated with each provider
 content_id | true | ID of the content created by the provider
+
+> Example code for Activating Content:
+
+```php
+<?php
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+CURLOPT_URL => "https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/setContentActiveById",
+CURLOPT_RETURNTRANSFER => true,
+CURLOPT_CUSTOMREQUEST => "POST",
+CURLOPT_POSTFIELDS => "{\"content_provider_id\": \"akamai_internal\",\"access_token\": \"B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE\",\"content_id\": \"346708\"}",
+CURLOPT_HTTPHEADER => array(
+"content-type: application/json"
+)
+));
+
+$response = curl_exec($curl);
+?>
+```
+
+```shell
+curl -X POST -H "Content-Type: application/json" -d '{
+"content_provider_id": "akamai_internal",
+"access_token": "B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE",
+"content_id":346708
+}' "https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/setContentActiveById"
+```
 
 ### RETURN CODES
 
@@ -1309,34 +1331,6 @@ Body
 }
 </code>
 
-> Example code for Activating Content:
-
-```php
-<?php
-$curl = curl_init();
-
-curl_setopt_array($curl, array(
-CURLOPT_URL => "https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/setContentActiveById",
-CURLOPT_RETURNTRANSFER => true,
-CURLOPT_CUSTOMREQUEST => "POST",
-CURLOPT_POSTFIELDS => "{\"content_provider_id\": \"akamai_internal\",\"access_token\": \"B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE\",\"content_id\": \"346708\"}",
-CURLOPT_HTTPHEADER => array(
-"content-type: application/json"
-)
-));
-
-$response = curl_exec($curl);
-?>
-```
-
-```shell
-curl -X POST -H "Content-Type: application/json" -d '{
-"content_provider_id": "akamai_internal",
-"access_token": "B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE",
-"content_id":346708
-}' "https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/setContentActiveById"
-```
-
 ### Result:
 
 ### Response 200
@@ -1367,6 +1361,34 @@ Parameter | Required | Description
 access_token | true | Access token associated with each provider
 content_provider_id | true | ID associated with each provider
 content_id | true | ID of the content created by the provider
+
+> Example Code Setting Content As Inactive:
+
+```php
+<?php
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+CURLOPT_URL => "https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/setContentInactiveById",
+CURLOPT_RETURNTRANSFER => true,
+CURLOPT_CUSTOMREQUEST => "POST",
+CURLOPT_POSTFIELDS => "{\"content_provider_id\": \"akamai_internal\",\"access_token\": \"B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE\",\"content_id\": \"346708\",}",
+CURLOPT_HTTPHEADER => array(
+"content-type: application/json"
+)
+));
+
+$response = curl_exec($curl);
+?>
+```
+
+```shell
+curl -X POST -H "Content-Type: application/json" -d '{
+"content_provider_id": "akamai_internal",
+"access_token": "B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE",
+"content_id":346708
+}' "https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/setContentInactiveById"
+```
 
 ### RETURN CODES
 
@@ -1422,34 +1444,6 @@ Body
 "return_code": "Unknown"
 }
 </code>
-
-> Example Code Setting Content As Inactive:
-
-```php
-<?php
-$curl = curl_init();
-
-curl_setopt_array($curl, array(
-CURLOPT_URL => "https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/setContentInactiveById",
-CURLOPT_RETURNTRANSFER => true,
-CURLOPT_CUSTOMREQUEST => "POST",
-CURLOPT_POSTFIELDS => "{\"content_provider_id\": \"akamai_internal\",\"access_token\": \"B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE\",\"content_id\": \"346708\",}",
-CURLOPT_HTTPHEADER => array(
-"content-type: application/json"
-)
-));
-
-$response = curl_exec($curl);
-?>
-```
-
-```shell
-curl -X POST -H "Content-Type: application/json" -d '{
-"content_provider_id": "akamai_internal",
-"access_token": "B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE",
-"content_id":346708
-}' "https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/setContentInactiveById"
-```
 
 ### Result:
 
