@@ -33,7 +33,7 @@ Android projects quite often rely on 3rd party libraries and SDKs, and have thie
 
 You need to add these 3rd party dependencies to a file named build.gradle(Module:app) which is present by default in Android (Refer to the image, the file is highlighted in blue). This file is located in a folder named 'app'.
 
-> Example code for Android
+> Code Snippet
 
 ``` shell
 apply plugin: 'com.android.application'
@@ -84,7 +84,7 @@ compile(name:'voc­sdk­release­{version}', ext:'aar') <br>
 
 The requirement is that, the project should be implementing API 15 or greater. These dependencies include Google Play services, Google Cloud Messaging and all the dependencies required for PCD.
 
-> Example code for Android
+> Code Snippet
 
 ``` shell
 apply plugin: 'com.android.application'
@@ -112,9 +112,10 @@ android {
 
 
 dependencies {
-  compile fileTree(dir: 'libs', include: ['*.jar'])
-  testCompile 'junit:junit:4.12'
-  compile 'com.android.support:appcompat-v7:24.2.0'
+compile 'com.google.android.gms:playservicesbase:7.0.0'
+compile 'com.google.android.gms:playservicesgcm:7.0.0'
+compile 'com.google.android.gms:playservicesads:7.0.0'
+compile(name:'voc­sdk­release­{version}', ext:'aar')
 }
 ```
 
@@ -124,40 +125,6 @@ dependencies {
 
 All the details of the components being used in the project are present in a file known as AndroidManifest.xml, which is more like an index. It contains information about all the Activity, Broadcast Receiver, User Permissions and more.. To locate this file, you need to navigate to app>src>main.
 
-> Example code for Android
-
-``` shell
-apply plugin: 'com.android.application'
-
-
-android {
-  compileSdkVersion 24
-  buildToolsVersion "24.0.1"
-
-
-  defaultConfig {
-      applicationId "akamai.sdk.demo"
-      minSdkVersion 15
-      targetSdkVersion 24
-      versionCode 1
-      versionName "1.0"
-  }
-  buildTypes {
-      release {
-          minifyEnabled false
-          proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-      }
-  }
-}
-
-
-dependencies {
-  compile fileTree(dir: 'libs', include: ['*.jar'])
-  testCompile 'junit:junit:4.12'
-  compile 'com.android.support:appcompat-v7:24.2.0'
-}
-```
-
 ![Component Details File](4.png)
 
 ## Add Permissions
@@ -166,15 +133,9 @@ For proper functioning of the SDK, you need some permissions from the user. Perm
 
 Following are the permissions:
 
-> Example code for Android 
+> Code Snippet 
 
 ``` Shell
-<code>
-uses-permission android:name="android.permission.INTERNET"
-uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"
-uses-permission android:name="android.permission.ACCESS_WIFI_STATE"
-uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-</code>
 
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
@@ -185,12 +146,8 @@ uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
   <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-  <uses­permission android:name="android.permission.INTERNET" />
-  <uses­permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-  <uses­permission android:name="android.permission.ACCESS_WIFI_STATE" />
-  <uses­permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-  <cation
+  <application
       android:allowBackup="true"
       android:icon="@mipmap/ic_launcher"
       android:label="@string/app_name"
@@ -225,54 +182,22 @@ For the SDK to work correctly, we need to add a receiver to listen to Voc Status
 
 It can be added in _AndroidManifest.xml_ inside the application tag.
 
-> Example code for Android 
+> Code Snippet 
 
 ``` Shell
-<code>
-uses-permission android:name="android.permission.INTERNET"
-uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"
-uses-permission android:name="android.permission.ACCESS_WIFI_STATE"
-uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-</code>
-
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="akamai.sdk.demo">
-
-  <uses-permission android:name="android.permission.INTERNET" />
-  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
-  <uses­permission android:name="android.permission.INTERNET" />
-  <uses­permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-  <uses­permission android:name="android.permission.ACCESS_WIFI_STATE" />
-  <uses­permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
-  <cation
-      android:allowBackup="true"
-      android:icon="@mipmap/ic_launcher"
-      android:label="@string/app_name"
-      android:supportsRtl="true"
-      android:theme="@style/AppTheme">
-      <activity android:name=".MainActivity">
-          <intent-filter>
-              <action android:name="android.intent.action.MAIN" />
+<receiver
+android:name="akamai.sdk.demo.VocBroadcastReceiver">
+<intent­filter>
+<action android:name="com.akamai.android.sdk.ACTION_VOC_STATUS" />
+<category android:name="akamai.sdk.demo" />
+</intent­filter>
+</receiver>
 
 
-              <category android:name="android.intent.category.LAUNCHER"
-
-    <!--  {ApplicationId} should be replaced with the client app package name , example com.domain.applicationname
-
-
-            A receiver to listen to Voc Status messages -->
-
-/>
-          </intent-filter>
-      </activity>
-  </application>
-
-</manifest>
+<provider
+android:name="com.akamai.android.sdk.db.AnaContentProvider"
+android:authorities="akamai.sdk.demo.AnaContentProvider" >
+</provider>
 ```
 
 ![Add a Receiver and a Provider](66.png)
