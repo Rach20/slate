@@ -175,7 +175,7 @@ To get a list of content categories, use the following command:
 
 <code> POST /ingest/v1/getContentCategories </code>
 
-*URI Parameters:* _content_provider_id,access_token_
+*URI Parameters:* content_provider_id,access_token
 
 
 Parameter | Required | Description
@@ -372,7 +372,7 @@ To add an m3u8 variant, add a JSON object to the streams array using the followi
 </code>
 
 
-URI Parameters: _content_provider_id,access_token_
+URI Parameters: content_provider_id,access_token
 
 Parameter | Required | Description
 --------- | -------- | -----------
@@ -440,18 +440,18 @@ Body<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;"content_title": "string - Title associated with the content",<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;"streams": [<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_objects of this format_<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"url": "string - mp4 url of content",<br> 
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "mp4"<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"size": "string - length of mp4 in bytes"<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"url": "string - mp4 url of content",<br> 
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "mp4"<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"size": "string - length of mp4 in bytes"<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_AND/OR objects of this format_<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"preferred_stream": "bitrate to choose from the m3u8 file",<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"url": "string = url of m3u8 file",<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "m3u8",<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"size": "length of stream in bytes"<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"preferred_stream": "bitrate to choose from the m3u8 file",<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"url": "string = url of m3u8 file",<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "m3u8",<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"size": "length of stream in bytes"<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;"publication_timestamp": "string "YYYY-MM-DD HH:MM:SS",<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;"thumb_width": integeger - thumbnail width,<br>
