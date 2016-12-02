@@ -312,7 +312,7 @@ $response = curl_exec($curl);
 ```
 
 ```shell
-curl -X POST -H "Content-Type: application/json" -d '{"content_provider_id": "akamai_internal",
+curl -X POST -H "Content-Type: application/json"" -d '{"content_provider_id": "akamai_internal",
 "access_token": "B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE",
 "content_video_width": 1024,
 "content_video_height": 720,
