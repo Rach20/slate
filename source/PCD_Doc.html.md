@@ -1,5 +1,8 @@
 ---
 title: PCD Documentation
+language_tabs:
+  - shell: Android
+  - php: iOS
 
 
 
@@ -21,7 +24,7 @@ To generate a key from Google's firebase console using GCM in android app, follo
 * It will give you a server-key that will be used by backend developers when creating push requests
 * You also need to save the Sender ID given here that will be used on Android for receiving push notifications.
 
-![](1.png?raw=true)
+![Prerequisites for using the SDK](1.png)
 
 
 ## File Location to Add Dependencies
@@ -30,7 +33,42 @@ Android projects quite often rely on 3rd party libraries and SDKs, and have thie
 
 You need to add these 3rd party dependencies to a file named build.gradle(Module:app) which is present by default in Android (Refer to the image, the file is highlighted in blue). This file is located in a folder named 'app'.
 
-![](2.png?raw=true)
+> Example code for Android
+
+``` shell
+apply plugin: 'com.android.application'
+
+
+android {
+  compileSdkVersion 24
+  buildToolsVersion "24.0.1"
+
+
+  defaultConfig {
+      applicationId "akamai.sdk.demo"
+      minSdkVersion 15
+      targetSdkVersion 24
+      versionCode 1
+      versionName "1.0"
+  }
+  buildTypes {
+      release {
+          minifyEnabled false
+          proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+      }
+  }
+}
+
+
+dependencies {
+  compile fileTree(dir: 'libs', include: ['*.jar'])
+  testCompile 'junit:junit:4.12'
+  compile 'com.android.support:appcompat-v7:24.2.0'
+}
+```
+
+
+![File Location to Add Dependencies](2.png)
 
 
 ## Dependencies to be Added
@@ -46,13 +84,81 @@ compile(name:'voc­sdk­release­{version}', ext:'aar') <br>
 
 The requirement is that, the project should be implementing API 15 or greater. These dependencies include Google Play services, Google Cloud Messaging and all the dependencies required for PCD.
 
-![](3.png?raw=true)
+> Example code for Android
+
+``` shell
+apply plugin: 'com.android.application'
+
+
+android {
+  compileSdkVersion 24
+  buildToolsVersion "24.0.1"
+
+
+  defaultConfig {
+      applicationId "akamai.sdk.demo"
+      minSdkVersion 15
+      targetSdkVersion 24
+      versionCode 1
+      versionName "1.0"
+  }
+  buildTypes {
+      release {
+          minifyEnabled false
+          proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+      }
+  }
+}
+
+
+dependencies {
+  compile fileTree(dir: 'libs', include: ['*.jar'])
+  testCompile 'junit:junit:4.12'
+  compile 'com.android.support:appcompat-v7:24.2.0'
+}
+```
+
+![Dependencies to be Added](3.png)
 
 ## Component Details File
 
 All the details of the components being used in the project are present in a file known as AndroidManifest.xml, which is more like an index. It contains information about all the Activity, Broadcast Receiver, User Permissions and more.. To locate this file, you need to navigate to app>src>main.
 
-![](4.png?raw=true)
+> Example code for Android
+
+``` shell
+apply plugin: 'com.android.application'
+
+
+android {
+  compileSdkVersion 24
+  buildToolsVersion "24.0.1"
+
+
+  defaultConfig {
+      applicationId "akamai.sdk.demo"
+      minSdkVersion 15
+      targetSdkVersion 24
+      versionCode 1
+      versionName "1.0"
+  }
+  buildTypes {
+      release {
+          minifyEnabled false
+          proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+      }
+  }
+}
+
+
+dependencies {
+  compile fileTree(dir: 'libs', include: ['*.jar'])
+  testCompile 'junit:junit:4.12'
+  compile 'com.android.support:appcompat-v7:24.2.0'
+}
+```
+
+![Component Details File](4.png)
 
 ## Add Permissions
 
@@ -60,6 +166,9 @@ For proper functioning of the SDK, you need some permissions from the user. Perm
 
 Following are the permissions:
 
+> Example code for Android 
+
+``` Shell
 <code>
 uses-permission android:name="android.permission.INTERNET"
 uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"
@@ -67,7 +176,48 @@ uses-permission android:name="android.permission.ACCESS_WIFI_STATE"
 uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
 </code>
 
-![](5.png?raw=true)
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  package="akamai.sdk.demo">
+
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+  <uses­permission android:name="android.permission.INTERNET" />
+  <uses­permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses­permission android:name="android.permission.ACCESS_WIFI_STATE" />
+  <uses­permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+  <cation
+      android:allowBackup="true"
+      android:icon="@mipmap/ic_launcher"
+      android:label="@string/app_name"
+      android:supportsRtl="true"
+      android:theme="@style/AppTheme">
+      <activity android:name=".MainActivity">
+          <intent-filter>
+              <action android:name="android.intent.action.MAIN" />
+
+
+              <category android:name="android.intent.category.LAUNCHER"
+
+    <!--  {ApplicationId} should be replaced with the client app package name , example com.domain.applicationname
+
+
+            A receiver to listen to Voc Status messages -->
+
+/>
+          </intent-filter>
+      </activity>
+  </application>
+
+</manifest>
+```
+
+
+![Add Permissions](5.png)
 
 ## Add a Receiver and a Provider
 
@@ -75,7 +225,57 @@ For the SDK to work correctly, we need to add a receiver to listen to Voc Status
 
 It can be added in _AndroidManifest.xml_ inside the application tag.
 
-![](66.png?raw=true)
+> Example code for Android 
+
+``` Shell
+<code>
+uses-permission android:name="android.permission.INTERNET"
+uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"
+uses-permission android:name="android.permission.ACCESS_WIFI_STATE"
+uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+</code>
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  package="akamai.sdk.demo">
+
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+  <uses­permission android:name="android.permission.INTERNET" />
+  <uses­permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses­permission android:name="android.permission.ACCESS_WIFI_STATE" />
+  <uses­permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+  <cation
+      android:allowBackup="true"
+      android:icon="@mipmap/ic_launcher"
+      android:label="@string/app_name"
+      android:supportsRtl="true"
+      android:theme="@style/AppTheme">
+      <activity android:name=".MainActivity">
+          <intent-filter>
+              <action android:name="android.intent.action.MAIN" />
+
+
+              <category android:name="android.intent.category.LAUNCHER"
+
+    <!--  {ApplicationId} should be replaced with the client app package name , example com.domain.applicationname
+
+
+            A receiver to listen to Voc Status messages -->
+
+/>
+          </intent-filter>
+      </activity>
+  </application>
+
+</manifest>
+```
+
+![Add a Receiver and a Provider](66.png)
 
 #iOS
 
@@ -89,7 +289,7 @@ For registration, a **PCD SDK license key** is a mandate.
 
 The application's product name **(Project → Choose target → Build Settings → Packaging → Product name)** must match the name provided on the PCD Web portal SDK license page. The portal field for this is **"iOS Application ID."** The app must enable Background Execution and Remote Notifications in order to preposition the content.
 
-![](7.png?raw=true)
+![Prerequisites](7.png)
 
 ## Add the framework
 
@@ -101,7 +301,7 @@ The application's product name **(Project → Choose target → Build Settings �
   - Click **Add Files** to
   - Choose **~/myproject/VocSdk.framework**
 
-  ![](8.png?raw=true)
+  ![Add the framework](8.png)
 
 ## Link the SDK to the project
 
@@ -112,7 +312,7 @@ Click the **General tab.**
 Under **Embedded Binaries,** click '+' and choose **VocSdk.framework**
 Click Add.
 
-![](9.png?raw=true)
+![Link the SDK to the project](9.png)
 
 ## Add a build phase to Project settings
 
@@ -141,7 +341,7 @@ The script will copy the correct VocSdk.framework to /myproject/ folder at the s
 
 This is how the build phase will finally look.
 
-![](10.png?raw=true)
+![Add a build phase to Project settings](10.png)
 
 ## Integrate your iOS
 
@@ -166,21 +366,24 @@ The create call inputs a reference to the SDK delegate as well as a configuratio
 
 The example below is inserted into **AppDelegate.m.** It initializes the SDK and tells it that AppDelegate will be the delegate to handle SDK messages.
 
-<code>
-(BOOL)application:(UIApplication *)application <br>didFinishLaunchingWithOptions:(NSDictionary *)launchOptions <br>
-{ <br>
-NSError *error = nil; <br>
-self.vocService = [VocServiceFactory createServiceWithDelegate:self <br>delegateQueue:[NSOperationQueue mainQueue] options:nil error:&error]; <br>
-if (!self.vocService)<br>
-{ <br>
-// error handling ­ could not start service 7 <br>
-return NO; <br>
-} <br>
-// app initialized return YES; <br>
-} 
-</code>
+> Example code for iOS integration
 
-![Integrate your iOS](11.png?raw=true)
+```php
+(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{ 
+NSError *error = nil;
+self.vocService = [VocServiceFactory createServiceWithDelegate:self delegateQueue:[NSOperationQueue mainQueue] options:nil error:&error]; 
+if (!self.vocService)
+{
+// error handling ­ could not start service 7 
+return NO;
+} 
+// app initialized return YES;
+} 
+
+```
+
+![Integrate your iOS](11.png)
 
 
 Need Help? 
