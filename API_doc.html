@@ -479,33 +479,33 @@ Body: <br>
 
 <span class="cp">?&gt;</span> 
 </code></pre>
-<pre class="highlight shell"><code>curl -X POST -H <span class="s2">"Content-Type: application/json"" -d '{"</span>content_provider_id<span class="s2">": "</span>akamai_internal<span class="s2">",
-"</span>access_token<span class="s2">": "</span>B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE<span class="s2">",
-"</span>content_video_width<span class="s2">": 1024,
-"</span>content_video_height<span class="s2">": 720,
-"</span>content_bit_rate<span class="s2">": 4096,
-"</span>content_categories<span class="s2">": [
-"</span>Entertainment<span class="s2">"
+<pre class="highlight shell"><code>curl -X POST -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{"content_provider_id": "akamai_internal",
+"access_token": "B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE",
+"content_video_width": 1024,
+"content_video_height": 720,
+"content_bit_rate": 4096,
+"content_categories": [
+"Entertainment"
 ],
-"</span>content_tags<span class="s2">": [{
-"</span>text<span class="s2">": "</span>stehd<span class="s2">",
-"</span>weight<span class="s2">": "</span>2<span class="s2">"
+"content_tags": [{
+"text": "stehd",
+"weight": "2"
 }],
-"</span>thumb_width<span class="s2">": 1024,
-"</span>thumb_height<span class="s2">": 720,
-"</span>thumb_length<span class="s2">": 1280,
-"</span>content_title<span class="s2">": "</span>Akamai-Edge 2016<span class="s2">",
-"</span>content_description<span class="s2">": "</span>Where the worlds leading brands unlock the opportunities of the internet. You<span class="s1">'ll meet 2,000 Attendees from 30+ Countries and can network with innovators from brands big and small. Don'</span>t miss out on the most productive event <span class="k">for </span>your online business.<span class="s2">",
-"</span>content_duration<span class="s2">": 65,
-"</span>content_unique_id<span class="s2">": "</span>a-lL66tBZZA<span class="s2">",
-"</span>streams<span class="s2">": [{
-"</span>url<span class="s2">": "</span>http://tools.watch-now.co/a-lL66tBZZA/index.m3u8<span class="s2">",
-"</span><span class="nb">type</span><span class="s2">": "</span>m3u8<span class="s2">",
-"</span>size<span class="s2">": "</span>12324<span class="s2">"
+"thumb_width": 1024,
+"thumb_height": 720,
+"thumb_length": 1280,
+"content_title": "Akamai-Edge 2016",
+"content_description": "Where the worlds leading brands unlock the opportunities of the internet. You'</span>ll meet 2,000 Attendees from 30+ Countries and can network with innovators from brands big and small. Don<span class="s1">'t miss out on the most productive event for your online business.",
+"content_duration": 65,
+"content_unique_id": "a-lL66tBZZA",
+"streams": [{
+"url": "http://tools.watch-now.co/a-lL66tBZZA/index.m3u8",
+"type": "m3u8",
+"size": "12324"
 }],
-"</span>publication_timestamp<span class="s2">": "</span>2016-08-09<span class="s2">",
-"</span>thumb_url<span class="s2">": "</span>http://tools.watch-now.co/a-lL66tBZZA/video.jpg<span class="s2">"}' "</span>https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/addContent<span class="s2">"
-</span></code></pre>
+"publication_timestamp": "2016-08-09",
+"thumb_url": "http://tools.watch-now.co/a-lL66tBZZA/video.jpg"}'</span> <span class="s2">"https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/addContent"</span>
+</code></pre>
 
 <p>This section will explain how to add content to the PCD platform. Currently, PCD enables you to submit video information using two formats - mp4 and m3u8 (HLS). You can add as many variants of the video as you like for a particular video.</p>
 
