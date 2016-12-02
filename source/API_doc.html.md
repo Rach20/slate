@@ -261,22 +261,6 @@ streams| true | Format of objects (mp4 or m3u8)
 publication_timestamp | true | Published date of the content
 thumb_url | true | HTTP URL associated with the thumbnail
 
-### RETURN CODES
-
-The following table provides a list of possible return codes:
-
-HTTP Status | Error Code | Description
------------ | ---------- | -----------
-200 | Success Success. | Request completed.
-400 | Does not conform to spec | Something in the request does not conform to specification; the request cannot continue.
-400 | Missing data| The request JSON is missing essential data to complete the request.
-401 | Access denied | The access token validation failed.
-403 | Add not permitted | The access token cannot add content.
-403 | Content category not permitted | The content category is not supported by the PCD application.
-403 | No variants of content provided | No mp4 or m3u8 variants of the content were provided.
-422 | Duplicate | The provider attempted to add a piece of content with a unique ID that already resides in the database.
-500 | Unknown | An unknown error occurred while processing the request.
-
 > Example Code - Adding Content (mp4 format & m3u8 format)
 
 
@@ -344,6 +328,25 @@ curl -X POST -H "Content-Type: application/json"" -d '{"content_provider_id": "a
 "publication_timestamp": "2016-08-09",
 "thumb_url": "http://tools.watch-now.co/a-lL66tBZZA/video.jpg"}' "https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/addContent"
 ```
+
+
+### RETURN CODES
+
+The following table provides a list of possible return codes:
+
+HTTP Status | Error Code | Description
+----------- | ---------- | -----------
+200 | Success Success. | Request completed.
+400 | Does not conform to spec | Something in the request does not conform to specification; the request cannot continue.
+400 | Missing data| The request JSON is missing essential data to complete the request.
+401 | Access denied | The access token validation failed.
+403 | Add not permitted | The access token cannot add content.
+403 | Content category not permitted | The content category is not supported by the PCD application.
+403 | No variants of content provided | No mp4 or m3u8 variants of the content were provided.
+422 | Duplicate | The provider attempted to add a piece of content with a unique ID that already resides in the database.
+500 | Unknown | An unknown error occurred while processing the request.
+
+
 ### Request
 
 Headers
