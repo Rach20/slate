@@ -625,3 +625,13 @@ html, body {
 .highlight, .highlight .w {
   background-color: $code-bg;
 }
+
+a.api-tool {
+    background-color: #09c;
+    color: #fff;
+    padding: 10px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-weight: 100;
+    font-size: 12px;
+}

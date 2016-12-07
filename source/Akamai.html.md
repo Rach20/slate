@@ -6,16 +6,8 @@ language_tabs:
   - php: PHP
 
 
-
 search: true
 ---
-<div>
-	<nav>
-	<a> Introduction</a>
-	<a> Getting Started</a>
-	<a> How PCD works</a>
-</nav>
-</div>
 
 # INTRODUCTION
 
@@ -80,7 +72,7 @@ You need to add these 3rd party dependencies to a file named build.gradle(Module
 
 > Code Snippet
 
-``` shell
+```
 apply plugin: 'com.android.application'
 
 
@@ -131,7 +123,7 @@ The requirement is that, the project should be implementing API 15 or greater. T
 
 > Code Snippet
 
-``` shell
+```
 apply plugin: 'com.android.application'
 
 
@@ -180,8 +172,7 @@ Following are the permissions:
 
 > Code Snippet 
 
-``` Shell
-
+```
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
   package="akamai.sdk.demo">
@@ -222,7 +213,7 @@ It can be added in _AndroidManifest.xml_ inside the application tag.
 
 > Code Snippet 
 
-``` Shell
+```
 <receiver
 android:name="akamai.sdk.demo.VocBroadcastReceiver">
 <intent­filter>
@@ -330,9 +321,9 @@ The create call inputs a reference to the SDK delegate as well as a configuratio
 
 The example below is inserted into **AppDelegate.m.** It initializes the SDK and tells it that AppDelegate will be the delegate to handle SDK messages.
 
-> Example code for iOS integration
+> Code Snippet
 
-```php
+```
 (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 { 
 NSError *error = nil;
@@ -378,7 +369,7 @@ In case, the content generators have no content to push, general content from th
 
 # CODE SAMPLES
 
-## Introduction
+## INTRODUCTION
 
 The Predictive Content Delivery (PCD) solution provides a platform into which you can manage content to be pre-positioned on end user mobile devices. We have created this guide to help you provision content in the PCD application.
 
@@ -387,7 +378,7 @@ All calls must use the format <code>/ingest/v1/{api_call}</code>.
 
 For example: <code> /ingest/v1/updateContentById </code>
 
-## Authentication
+## AUTENTICATION
 
 > Example of Content Provider ID and Access Token authentication:
 
@@ -575,7 +566,7 @@ Body<br>
 }<br>
 </code>
 
-#### Response 200
+### Response 200
 
 Headers
 
@@ -589,7 +580,7 @@ Body <br>
 }
 </code>
 
-#### Response 400
+### Response 400
 
 Headers
 
@@ -602,7 +593,7 @@ Body <br>
 }
 </code>
 
-#### Response 500
+### Response 500
 
 Headers
 
@@ -617,13 +608,6 @@ Body<br>
 
 
 #### Result:
-
-Response 200
-
-HEADERS
-
-Content-Type:application/json
-
 > Response body
 
 ```json
@@ -633,6 +617,13 @@ Content-Type:application/json
 "Business" 
 ]
 ```
+
+### Response 200
+
+HEADERS
+
+Content-Type:application/json
+
 
 ## ADDING CONTENT
 
@@ -703,7 +694,6 @@ curl -X POST -H "Content-Type: application/json" -d '{"content_provider_id": "ak
 "publication_timestamp": "2016-08-09",
 "thumb_url": "http://tools.watch-now.co/a-lL66tBZZA/video.jpg"}' "https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/addContent"
 ```
-
 
 This section will explain how to add content to the PCD platform. Currently, PCD enables you to submit video information using two formats - mp4 and m3u8 (HLS). You can add as many variants of the video as you like for a particular video.
 
@@ -865,19 +855,20 @@ Content-Type: application/json
 </code>
 
 ### Result:
+
+> Response body
+
+```json
+{
+"content_id": 346708,
+"return_code": "Success"
+}
+```
 ### Response 200
 
 HEADERS
 
 Content-Type:application/json
-
-<code>
-Body:<br>
-{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"content_id": 346708,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"return_code": "Success"<br>
-}
-</code>
 
 ## UPDATING CONTENT METADATA BY ID
 
@@ -1047,18 +1038,19 @@ Body<br>
 
 
 ### Result:
-### Response200
+> Response body
+
+```json
+{
+"return_code": "Success"
+}
+```
+### Response 200
 
 HEADERS
 
 Content-Type:application/json
 
-<code>
-Body:<br>
-{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"return_code": "Success"<br>
-}
-</code>
 
 ## PURGE BY CONTENT ID
 
@@ -1178,18 +1170,19 @@ Body<br>
 
 ### Result:
 
-### Response200
+### Response 200
 
 HEADERS
 
 Content-Type:application/json
 
-<code>
-Body:<br>
-{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"return_code": "Success"<br>
+> Response body
+
+```json
+{
+"return_code": "Success"
 }
-</code>
+```
 
 
 ## GETTING ALL CONTENT IDs
@@ -1305,19 +1298,21 @@ Body<br>
 </code>
 
 ### Result:
+> Response body
+
+```json
+[
+{
+"content_id": 346708
+}
+] 
+```
 ### Response 200
 
 Headers
 
 Content-Type:application/json
 
-<code>
-[<br>
-&nbsp;&nbsp;&nbsp;&nbsp;{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"content_id": 346708<br>
-&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-] 
-</code>
 
 ## GETTING CONTENT METADATA BY ID
 
@@ -1472,62 +1467,62 @@ Body<br>
 
 
 ### Result:
+> Response body
+
+```json
+
+{
+"content_length": 12324,
+"content_description": "Where the worlds leading brands unlock the opportunities of the internet.
+You'll meet 2,000 Attendees from 30+ Countries and can network with innovators from brands big and small.
+Don't miss out on the most productive event for your online business.",
+"content_provider_id": "akamai_internal",
+"content_video_height": "720",
+"thumb_height": "720",
+"content_title": "Akamai Edge 2016",
+"content_expiration": null,
+"preselected": null,
+"persistToExpiration": null,
+"publication_timestamp": "2016-08-09 00:00:00",
+"content_tags": [
+{
+"text": "stehd",
+"weight": "2"
+}
+],
+"thumb_width": "1024",
+"long_lived": true,
+"content_type": "video/m3u8",
+"content_categories": [
+"Entertainment"
+],
+"thumb_url": "http://tools.watch-now.co/a-lL66tBZZA/video.jpg",
+"content_video_width": "1024",
+"content_unique_id": "a-lL66tBZZA",
+"content_bit_rate": 4096,
+"thumb_length": 1280,
+"streams": [
+{
+"url": "http://tools.watch-now.co/a-lL66tBZZA/index.m3u8",
+"type": "m3u8",
+"lowcost_map": {
+"url": null,
+"use": false,
+"host": null
+},
+"size": "12324"
+}
+],
+"content_duration": 65,
+"ad_url": null
+}
+```
 
 ### Response 200
 
 Headers
 
 Content-Type:application/json
-
-<code>
-Body:<br>
-{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"content_length": 12324,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"content_description": "Where the worlds leading brands unlock the opportunities of the internet.
-You'll meet 2,000 Attendees from 30+ Countries and can network with innovators from brands big and small.
-Don't miss out on the most productive event for your online business.",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"content_provider_id": "akamai_internal",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"content_video_height": "720",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"thumb_height": "720",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"content_title": "Akamai Edge 2016",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"content_expiration": null,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"preselected": null,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"persistToExpiration": null,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"publication_timestamp": "2016-08-09 00:00:00",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"content_tags": [<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"text": "stehd",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"weight": "2"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;],<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"thumb_width": "1024",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"long_lived": true,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"content_type": "video/m3u8",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"content_categories": [<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Entertainment"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;],<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"thumb_url": "http://tools.watch-now.co/a-lL66tBZZA/video.jpg",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"content_video_width": "1024",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"content_unique_id": "a-lL66tBZZA",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"content_bit_rate": 4096,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"thumb_length": 1280,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"streams": [<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"url": "http://tools.watch-now.co/a-lL66tBZZA/index.m3u8",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "m3u8",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lowcost_map": {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"url": null,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"use": false,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"host": null<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"size": "12324"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;],<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"content_duration": 65,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"ad_url": null<br>
-}
-</code>
-
 
 ## GETTING CONTENT STATUS
 
@@ -1648,18 +1643,20 @@ Body<br>
 
 ### Result:
 
+> Response body 
+
+
+```json
+{
+"return_code": "Active"
+}
+```
+
 ### Response200
 
 HEADERS
 
 Content-Type:application/json
-
-<code>
-Body:<br>
-{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"return_code": "Active"<br>
-}
-</code>
 
 ## ACTIVATING CONTENT
 
@@ -1777,19 +1774,19 @@ Body<br>
 </code>
 
 ### Result:
+> Response body
+
+```json
+{
+"return_code": "Success"
+}
+```
 
 ### Response 200
 
 HEADERS
 
 Content-Type:application/json
-
-<code>
-Body:<br>
-{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"return_code": "Success"<br>
-}
-</code>
 
 ## SETTING CONTENT AS INACTIVE
 
@@ -1895,18 +1892,18 @@ Body<br>
 
 ### Result:
 
+> Response body
+
+```json
+{
+"return_code": "Success"
+}
+```
+
 ### Response 200
 
 HEADERS
 
 Content-Type:application/json
 
-<code>
-Body:<br>
-{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"return_code": "Success"<br>
-}
-</code>
-
- # API TOOL
-<a href="http://enterprisesmail.com/akamai_API/tool.html"> API TOOL </a>
+# <a href="http://enterprisesmail.com/akamai_API/tool.html" target="blank" class="api-tool">TEST APIs</a>
