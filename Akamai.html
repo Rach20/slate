@@ -114,15 +114,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <div>
-    <nav>
-    <a> Introduction</a>
-    <a> Getting Started</a>
-    <a> How PCD works</a>
-</nav>
-</div>
-
-<h1 id="introduction">INTRODUCTION</h1>
+        <h1 id="introduction">INTRODUCTION</h1>
 
 <h3 id="welcome">Welcome!</h3>
 
@@ -190,35 +182,35 @@
 <blockquote>
 <p>Code Snippet</p>
 </blockquote>
-<pre class="highlight shell"><code>apply plugin: <span class="s1">'com.android.application'</span>
+<pre class="highlight plaintext"><code>apply plugin: 'com.android.application'
 
 
-android <span class="o">{</span>
+android {
   compileSdkVersion 24
-  buildToolsVersion <span class="s2">"24.0.1"</span>
+  buildToolsVersion "24.0.1"
 
 
-  defaultConfig <span class="o">{</span>
-      applicationId <span class="s2">"akamai.sdk.demo"</span>
+  defaultConfig {
+      applicationId "akamai.sdk.demo"
       minSdkVersion 15
       targetSdkVersion 24
       versionCode 1
-      versionName <span class="s2">"1.0"</span>
-  <span class="o">}</span>
-  buildTypes <span class="o">{</span>
-      release <span class="o">{</span>
-          minifyEnabled <span class="nb">false
-          </span>proguardFiles getDefaultProguardFile<span class="o">(</span><span class="s1">'proguard-android.txt'</span><span class="o">)</span>, <span class="s1">'proguard-rules.pro'</span>
-      <span class="o">}</span>
-  <span class="o">}</span>
-<span class="o">}</span>
+      versionName "1.0"
+  }
+  buildTypes {
+      release {
+          minifyEnabled false
+          proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+      }
+  }
+}
 
 
-dependencies <span class="o">{</span>
-  compile fileTree<span class="o">(</span>dir: <span class="s1">'libs'</span>, include: <span class="o">[</span><span class="s1">'*.jar'</span><span class="o">])</span>
-  testCompile <span class="s1">'junit:junit:4.12'</span>
-  compile <span class="s1">'com.android.support:appcompat-v7:24.2.0'</span>
-<span class="o">}</span>
+dependencies {
+  compile fileTree(dir: 'libs', include: ['*.jar'])
+  testCompile 'junit:junit:4.12'
+  compile 'com.android.support:appcompat-v7:24.2.0'
+}
 </code></pre>
 
 <p><img alt="File Location to Add Dependencies" src="images/2.png" /></p>
@@ -239,36 +231,36 @@ compile(name:&#39;voc­sdk­release­{version}&#39;, ext:&#39;aar&#39;) <br>
 <blockquote>
 <p>Code Snippet</p>
 </blockquote>
-<pre class="highlight shell"><code>apply plugin: <span class="s1">'com.android.application'</span>
+<pre class="highlight plaintext"><code>apply plugin: 'com.android.application'
 
 
-android <span class="o">{</span>
+android {
   compileSdkVersion 24
-  buildToolsVersion <span class="s2">"24.0.1"</span>
+  buildToolsVersion "24.0.1"
 
 
-  defaultConfig <span class="o">{</span>
-      applicationId <span class="s2">"akamai.sdk.demo"</span>
+  defaultConfig {
+      applicationId "akamai.sdk.demo"
       minSdkVersion 15
       targetSdkVersion 24
       versionCode 1
-      versionName <span class="s2">"1.0"</span>
-  <span class="o">}</span>
-  buildTypes <span class="o">{</span>
-      release <span class="o">{</span>
-          minifyEnabled <span class="nb">false
-          </span>proguardFiles getDefaultProguardFile<span class="o">(</span><span class="s1">'proguard-android.txt'</span><span class="o">)</span>, <span class="s1">'proguard-rules.pro'</span>
-      <span class="o">}</span>
-  <span class="o">}</span>
-<span class="o">}</span>
+      versionName "1.0"
+  }
+  buildTypes {
+      release {
+          minifyEnabled false
+          proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+      }
+  }
+}
 
 
-dependencies <span class="o">{</span>
-compile <span class="s1">'com.google.android.gms:playservicesbase:7.0.0'</span>
-compile <span class="s1">'com.google.android.gms:playservicesgcm:7.0.0'</span>
-compile <span class="s1">'com.google.android.gms:playservicesads:7.0.0'</span>
-compile<span class="o">(</span>name:<span class="s1">'voc­sdk­release­{version}'</span>, ext:<span class="s1">'aar'</span><span class="o">)</span>
-<span class="o">}</span>
+dependencies {
+compile 'com.google.android.gms:playservicesbase:7.0.0'
+compile 'com.google.android.gms:playservicesgcm:7.0.0'
+compile 'com.google.android.gms:playservicesads:7.0.0'
+compile(name:'voc­sdk­release­{version}', ext:'aar')
+}
 </code></pre>
 
 <p><img alt="Dependencies to be Added" src="images/3.png" /></p>
@@ -288,34 +280,33 @@ compile<span class="o">(</span>name:<span class="s1">'voc­sdk­release­{versio
 <blockquote>
 <p>Code Snippet </p>
 </blockquote>
-<pre class="highlight plaintext"><code>
-&lt;?xml version="1.0" encoding="utf-8"?&gt;
-&lt;manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="akamai.sdk.demo"&gt;
+<pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;manifest</span> <span class="na">xmlns:android=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
+  <span class="na">package=</span><span class="s">"akamai.sdk.demo"</span><span class="nt">&gt;</span>
 
-  &lt;uses-permission android:name="android.permission.INTERNET" /&gt;
-  &lt;uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /&gt;
-  &lt;uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /&gt;
-  &lt;uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /&gt;
-
-
-  &lt;application
-      android:allowBackup="true"
-      android:icon="@mipmap/ic_launcher"
-      android:label="@string/app_name"
-      android:supportsRtl="true"
-      android:theme="@style/AppTheme"&gt;
-      &lt;activity android:name=".MainActivity"&gt;
-          &lt;intent-filter&gt;
-              &lt;action android:name="android.intent.action.MAIN" /&gt;
+  <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.INTERNET"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.ACCESS_NETWORK_STATE"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.ACCESS_WIFI_STATE"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.WRITE_EXTERNAL_STORAGE"</span> <span class="nt">/&gt;</span>
 
 
-              &lt;category android:name="android.intent.category.LAUNCHER"/&gt;
-          &lt;/intent-filter&gt;
-      &lt;/activity&gt;
-  &lt;/application&gt;
+  <span class="nt">&lt;application</span>
+      <span class="na">android:allowBackup=</span><span class="s">"true"</span>
+      <span class="na">android:icon=</span><span class="s">"@mipmap/ic_launcher"</span>
+      <span class="na">android:label=</span><span class="s">"@string/app_name"</span>
+      <span class="na">android:supportsRtl=</span><span class="s">"true"</span>
+      <span class="na">android:theme=</span><span class="s">"@style/AppTheme"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;activity</span> <span class="na">android:name=</span><span class="s">".MainActivity"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;intent-filter&gt;</span>
+              <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">"android.intent.action.MAIN"</span> <span class="nt">/&gt;</span>
 
-&lt;/manifest&gt;
+
+              <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">"android.intent.category.LAUNCHER"</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;/intent-filter&gt;</span>
+      <span class="nt">&lt;/activity&gt;</span>
+  <span class="nt">&lt;/application&gt;</span>
+
+<span class="nt">&lt;/manifest&gt;</span>
 </code></pre>
 
 <p><img alt="Add Permissions" src="images/5.png" /></p>
@@ -444,12 +435,12 @@ Click Add.</p>
 <p>The example below is inserted into <strong>AppDelegate.m.</strong> It initializes the SDK and tells it that AppDelegate will be the delegate to handle SDK messages.</p>
 
 <blockquote>
-<p>Example code for iOS integration</p>
+<p>Code Snippet</p>
 </blockquote>
-<pre class="highlight php"><code>(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+<pre class="highlight plaintext"><code>(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 { 
 NSError *error = nil;
-self.vocService = [VocServiceFactory createServiceWithDelegate:self delegateQueue:[NSOperationQueue mainQueue] options:nil error:<span class="ni">&amp;error];</span> 
+self.vocService = [VocServiceFactory createServiceWithDelegate:self delegateQueue:[NSOperationQueue mainQueue] options:nil error:&amp;error]; 
 if (!self.vocService)
 {
 // error handling ­ could not start service 7 
@@ -493,7 +484,7 @@ Mobile users do not have to worry about manually clearing the stored or outdated
 
 <h1 id="code-samples">CODE SAMPLES</h1>
 
-<h2 id="introduction">Introduction</h2>
+<h2 id="introduction">INTRODUCTION</h2>
 
 <p>The Predictive Content Delivery (PCD) solution provides a platform into which you can manage content to be pre-positioned on end user mobile devices. We have created this guide to help you provision content in the PCD application.</p>
 
@@ -502,7 +493,7 @@ All calls must use the format <code>/ingest/v1/{api_call}</code>.</p>
 
 <p>For example: <code> /ingest/v1/updateContentById </code></p>
 
-<h2 id="authentication">Authentication</h2>
+<h2 id="autentication">AUTENTICATION</h2>
 
 <blockquote>
 <p>Example of Content Provider ID and Access Token authentication:</p>
@@ -762,7 +753,7 @@ Body<br>
 }<br>
 </code></p>
 
-<h4 id="response-200">Response 200</h4>
+<h3 id="response-200">Response 200</h3>
 
 <p>Headers</p>
 
@@ -776,7 +767,7 @@ Body <br>
 }
 </code></p>
 
-<h4 id="response-400">Response 400</h4>
+<h3 id="response-400">Response 400</h3>
 
 <p>Headers</p>
 
@@ -789,7 +780,7 @@ Body <br>
 }
 </code></p>
 
-<h4 id="response-500">Response 500</h4>
+<h3 id="response-500">Response 500</h3>
 
 <p>Headers</p>
 
@@ -804,12 +795,6 @@ Body<br>
 
 <h4 id="result">Result:</h4>
 
-<p>Response 200</p>
-
-<p>HEADERS</p>
-
-<p>Content-Type:application/json</p>
-
 <blockquote>
 <p>Response body</p>
 </blockquote>
@@ -819,6 +804,12 @@ Body<br>
 </span><span class="s2">"Business"</span><span class="w"> 
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
+
+<h3 id="response-200">Response 200</h3>
+
+<p>HEADERS</p>
+
+<p>Content-Type:application/json</p>
 
 <h2 id="adding-content">ADDING CONTENT</h2>
 
@@ -1159,19 +1150,20 @@ Body<br>
 
 <h3 id="result">Result:</h3>
 
+<blockquote>
+<p>Response body</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="nt">"content_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">346708</span><span class="p">,</span><span class="w">
+</span><span class="nt">"return_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
 <h3 id="response-200">Response 200</h3>
 
 <p>HEADERS</p>
 
 <p>Content-Type:application/json</p>
-
-<p><code>
-Body:<br>
-{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&quot;content_id&quot;: 346708,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&quot;return_code&quot;: &quot;Success&quot;<br>
-}
-</code></p>
 
 <h2 id="updating-content-metadata-by-id">UPDATING CONTENT METADATA BY ID</h2>
 
@@ -1452,18 +1444,19 @@ Body<br>
 
 <h3 id="result">Result:</h3>
 
-<h3 id="response200">Response200</h3>
+<blockquote>
+<p>Response body</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="nt">"return_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="response-200">Response 200</h3>
 
 <p>HEADERS</p>
 
 <p>Content-Type:application/json</p>
-
-<p><code>
-Body:<br>
-{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&quot;return_code&quot;: &quot;Success&quot;<br>
-}
-</code></p>
 
 <h2 id="purge-by-content-id">PURGE BY CONTENT ID</h2>
 
@@ -1627,18 +1620,19 @@ Body<br>
 
 <h3 id="result">Result:</h3>
 
-<h3 id="response200">Response200</h3>
+<h3 id="response-200">Response 200</h3>
 
 <p>HEADERS</p>
 
 <p>Content-Type:application/json</p>
 
-<p><code>
-Body:<br>
-{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&quot;return_code&quot;: &quot;Success&quot;<br>
-}
-</code></p>
+<blockquote>
+<p>Response body</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="nt">"return_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <h2 id="getting-all-content-ids">GETTING ALL CONTENT IDs</h2>
 
@@ -1794,19 +1788,21 @@ Body<br>
 
 <h3 id="result">Result:</h3>
 
+<blockquote>
+<p>Response body</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nt">"content_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">346708</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w"> 
+</span></code></pre>
+
 <h3 id="response-200">Response 200</h3>
 
 <p>Headers</p>
 
 <p>Content-Type:application/json</p>
-
-<p><code>
-[<br>
-&nbsp;&nbsp;&nbsp;&nbsp;{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;content_id&quot;: 346708<br>
-&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-] 
-</code></p>
 
 <h2 id="getting-content-metadata-by-id">GETTING CONTENT METADATA BY ID</h2>
 
@@ -2005,60 +2001,62 @@ Body<br>
 
 <h3 id="result">Result:</h3>
 
+<blockquote>
+<p>Response body</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nt">"content_length"</span><span class="p">:</span><span class="w"> </span><span class="mi">12324</span><span class="p">,</span><span class="w">
+</span><span class="nt">"content_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Where the worlds leading brands unlock the opportunities of the internet.
+You'll meet 2,000 Attendees from 30+ Countries and can network with innovators from brands big and small.
+Don't miss out on the most productive event for your online business."</span><span class="p">,</span><span class="w">
+</span><span class="nt">"content_provider_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"akamai_internal"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"content_video_height"</span><span class="p">:</span><span class="w"> </span><span class="s2">"720"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"thumb_height"</span><span class="p">:</span><span class="w"> </span><span class="s2">"720"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"content_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Akamai Edge 2016"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"content_expiration"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+</span><span class="nt">"preselected"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+</span><span class="nt">"persistToExpiration"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+</span><span class="nt">"publication_timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-09 00:00:00"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"content_tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stehd"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"weight"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">],</span><span class="w">
+</span><span class="nt">"thumb_width"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1024"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"long_lived"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+</span><span class="nt">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"video/m3u8"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"content_categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="s2">"Entertainment"</span><span class="w">
+</span><span class="p">],</span><span class="w">
+</span><span class="nt">"thumb_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://tools.watch-now.co/a-lL66tBZZA/video.jpg"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"content_video_width"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1024"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"content_unique_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a-lL66tBZZA"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"content_bit_rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">4096</span><span class="p">,</span><span class="w">
+</span><span class="nt">"thumb_length"</span><span class="p">:</span><span class="w"> </span><span class="mi">1280</span><span class="p">,</span><span class="w">
+</span><span class="nt">"streams"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://tools.watch-now.co/a-lL66tBZZA/index.m3u8"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m3u8"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"lowcost_map"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+</span><span class="nt">"use"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+</span><span class="nt">"host"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12324"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">],</span><span class="w">
+</span><span class="nt">"content_duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">65</span><span class="p">,</span><span class="w">
+</span><span class="nt">"ad_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
 <h3 id="response-200">Response 200</h3>
 
 <p>Headers</p>
 
 <p>Content-Type:application/json</p>
-
-<p><code>
-Body:<br>
-{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&quot;content_length&quot;: 12324,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&quot;content_description&quot;: &quot;Where the worlds leading brands unlock the opportunities of the internet.
-You&#39;ll meet 2,000 Attendees from 30+ Countries and can network with innovators from brands big and small.
-Don&#39;t miss out on the most productive event for your online business.&quot;,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&quot;content_provider_id&quot;: &quot;akamai_internal&quot;,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&quot;content_video_height&quot;: &quot;720&quot;,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&quot;thumb_height&quot;: &quot;720&quot;,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&quot;content_title&quot;: &quot;Akamai Edge 2016&quot;,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;content_expiration&quot;: null,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&quot;preselected&quot;: null,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&quot;persistToExpiration&quot;: null,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&quot;publication_timestamp&quot;: &quot;2016-08-09 00:00:00&quot;,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&quot;content_tags&quot;: [<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;text&quot;: &quot;stehd&quot;,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;weight&quot;: &quot;2&quot;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;],<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&quot;thumb_width&quot;: &quot;1024&quot;,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&quot;long_lived&quot;: true,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&quot;content_type&quot;: &quot;video/m3u8&quot;,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&quot;content_categories&quot;: [<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Entertainment&quot;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;],<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&quot;thumb_url&quot;: &quot;http://tools.watch-now.co/a-lL66tBZZA/video.jpg&quot;,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&quot;content_video_width&quot;: &quot;1024&quot;,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&quot;content_unique_id&quot;: &quot;a-lL66tBZZA&quot;,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&quot;content_bit_rate&quot;: 4096,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&quot;thumb_length&quot;: 1280,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&quot;streams&quot;: [<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;url&quot;: &quot;http://tools.watch-now.co/a-lL66tBZZA/index.m3u8&quot;,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;type&quot;: &quot;m3u8&quot;,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;lowcost_map&quot;: {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;url&quot;: null,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;use&quot;: false,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;host&quot;: null<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;size&quot;: &quot;12324&quot;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;],<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&quot;content_duration&quot;: 65,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&quot;ad_url&quot;: null<br>
-}
-</code></p>
 
 <h2 id="getting-content-status">GETTING CONTENT STATUS</h2>
 
@@ -2226,18 +2224,19 @@ Body<br>
 
 <h3 id="result">Result:</h3>
 
+<blockquote>
+<p>Response body </p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="nt">"return_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Active"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
 <h3 id="response200">Response200</h3>
 
 <p>HEADERS</p>
 
 <p>Content-Type:application/json</p>
-
-<p><code>
-Body:<br>
-{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&quot;return_code&quot;: &quot;Active&quot;<br>
-}
-</code></p>
 
 <h2 id="activating-content">ACTIVATING CONTENT</h2>
 
@@ -2403,18 +2402,19 @@ Body<br>
 
 <h3 id="result">Result:</h3>
 
+<blockquote>
+<p>Response body</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="nt">"return_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
 <h3 id="response-200">Response 200</h3>
 
 <p>HEADERS</p>
 
 <p>Content-Type:application/json</p>
-
-<p><code>
-Body:<br>
-{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&quot;return_code&quot;: &quot;Success&quot;<br>
-}
-</code></p>
 
 <h2 id="setting-content-as-inactive">SETTING CONTENT AS INACTIVE</h2>
 
@@ -2567,21 +2567,21 @@ Body<br>
 
 <h3 id="result">Result:</h3>
 
+<blockquote>
+<p>Response body</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="nt">"return_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
 <h3 id="response-200">Response 200</h3>
 
 <p>HEADERS</p>
 
 <p>Content-Type:application/json</p>
 
-<p><code>
-Body:<br>
-{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&quot;return_code&quot;: &quot;Success&quot;<br>
-}
-</code></p>
-
-<p># API TOOL
-<a href="http://enterprisesmail.com/akamai_API/tool.html"> API TOOL </a></p>
+<h1 id="test-apis"><a href="http://enterprisesmail.com/akamai_API/tool.html" target="blank" class="api-tool">TEST APIs</a></h1>
 
       </div>
       <div class="dark-box">
