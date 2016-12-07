@@ -367,6 +367,164 @@ The videos are either picked from the Akamai cloud or the general internet.
 
 In case, the content generators have no content to push, general content from the internet will be uploaded to the app. E.g. Bloomberg TV.
 
+
+# PCD INTEGRATION FOR THE USER TRIGGERING DOWNLOADS
+
+## STEPS TO INTEGRATE THE SDK
+
+## Initialization
+
+> Code Snippet:
+
+```
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    VocService vocService = VocService.createVocService(getApplicationContext());
+}
+```
+
+The first step after app start would be to create an instance of VocService using VocService.createInstance(Context applicationContext). This should be done in the onCreate of MainActivity or MainApplication class that extends Application class. 
+
+## Configuration
+
+```
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    VocConfigBuilder configBuilder = new VocConfigBuilder(getApplicationContext());
+    configBuilder.disableBackgroundDownloads();
+  }
+  ```
+
+Setup the configuration using VocConfigBuilder in the onCreate of MainActivity or MainApplication class that extends Application class. For example if the client app wants to control downloads manually, it can call disableBackgroundDownloads(). To be clear, this call means no content will be queued automatically for downloads, until user makes a call to trigger a specific download. Once user queues a content for download, in normal background download modes, that content will be downloaded in background.
+
+## Registration
+
+```
+protected void onCreate(Bundle savedInstanceState) {
+      VocService vocService = VocService.createVocService(getApplicationContext()); 
+  
+    VocRegistrationStatus status = vocService.getRegistrationStatus();
+    if(status.isActive()){
+        //Launch list activity to load content from ContentProvider
+    }
+    else{
+      //Register using pre-configured API key
+  VocRegistrationInfo regInfo = new VocRegistrationInfo(sdkApikey);   
+        vocService.register(regInfo , new VocService.VocAysncResponseHandler(new Handler()){
+        public void onSuccess(){
+              //Launch activity to list content
+         }
+         public void onFailure(String message){
+       //Display error message 
+         }
+  );
+    }
+ }
+```
+
+The next step is to register with server using VocService.register() API . Register call is non-blocking so client would need to pass Async handler for registration status result.  Registration is a one time event, client can check the registration status using VocService.getRegistrationStatus() to see if its already registered . Registration can be done using SDK API key.
+
+## Access the APIs
+
+All the SDK APIs need a feedId as an input. A feedId uniquely identifies each video in the database.
+SDK provides API which takes in video URL as the input and returns the the corresponding feedId. 
+
+```
+public String getFeedIdFromUrl(String url){
+   //This method queries the database and returns the feedId for the given URL.
+}
+```
+
+AnaFeedItem is a model class that encapsulates data about each video. Data about each feed item includes feedId, title, url to download the feed, feed type, feed size, feed download status, thumbnail info etc. Client app can use the AnaFeedItem object to get the relevant information related to a video.
+
+public AnaFeedItem getFeedItemFromFeedId(String feedId){
+   //This method queries the database and constructs the feedItem for the given feedId
+}
+
+## STEPS TO INTEGRATE API
+
+## Download Feeds
+
+> Code snippet
+
+```
+String url = “https://samplevideo.mp4”;
+String feedId = getFeedIdFromUrl(url); //This method queries the DB and gets the feedId.
+final VocService vocService = VocService.createVocService(getApplicationContext());
+VocServiceResult result = vocService.downloadFeeds(new String[]{feedId});
+```
+ 
+Client application can call the API method VocService.downloadFeeds to download a specific list of feeds by passing their feedIds as argument. All the feeds in the list are queued for download. Also multiple calls to this method results in queuing downloads. Note - Calling this API for the same feedId will NOT result in the download of the corresponding video twice.
+
+After calling this method, client app can listen to events (success or failure) by registering VocStatusReceiver. The method onPolicyStatusFailure(context, policyCode) is called if the device is out of policy like not connected to wifi, low battery etc. The method onNewContentAvailable(context, numOfFeeds) is called when the new content is downloaded.
+
+
+## Pause Download
+
+```
+String url = “https://samplevideo.mp4”;
+String feedId = getFeedIdFromUrl(url); //This method queries the DB and gets the feedId.
+final VocService vocService = VocService.createVocService(getApplicationContext());
+vocService.pauseFeedDownload(feedId);
+```
+
+Client application can call the API method VocService.pauseFeedDownload to pause the ongoing download of a video by passing the feedId as the argument
+
+## Delete File
+
+```
+String url = “https://samplevideo.mp4”;
+String feedId = getFeedIdFromUrl(url); //This method queries the DB and gets the feedId.
+final VocService vocService = VocService.createVocService(getApplicationContext());
+VocServiceResult result = vocService.deleteFiles(feedId, false);
+```
+ 
+Client application can call the API method VocService.deleteFiles to delete all the files related to the video from the device by passing the feedId in the argument. Optionally app can retain the thumbnail of the video by setting deleteThumbnail to false. Note - This API only deletes the content associated with the video and not its metadata. 
+
+## Download Status
+ 
+```
+public class ClientBroadcastReceiver extends VocDownloadStatusReceiver {
+  @Override
+  protected void onFeedDownloadStatus(Context c, String feedId, long bytesDownloaded, long bytesRemaining, long eta) {
+     //This method is called whenever a broadcast is sent.
+  }
+}
+```
+
+Client application can dynamically register the BroadcastReceiver to listen to download status like bytes downloaded, bytes remaining and ETA for download. Client app should subclass VocDownloadStatusReceiver class and implement the callback method onFeedDownloadStatus. Use the parameters of the method to show download progress in the UI.
+
+
+```
+private BroadcastReceiver receiver;
+ 
+@Override
+public void onCreate(Bundle savedInstanceState) {
+  IntentFilter filter = new IntentFilter();
+  filter.addAction(“com.akamai.android.sdk.ACTION_VOC_DOWNLOAD_STATUS”);
+  filter.addCategory(getPackageName());
+  receiver = new ClientBroadcastReceiver();
+  context.registerReceiver(receiver, filter);
+}
+ 
+@Override
+public void onDestroy() {
+  context.unregisterReceiver(receiver);
+  super.onDestroy();   
+}
+```
+
+Alternatively instead of listening, the client app can use the API method VocService.getDownloadStatus by passing the feedId, to get the download information of that particular feed item whenever they need.
+
+```
+@Override
+public void onCreate(Bundle savedInstanceState) {
+  AnaFeedDownloadStatus downloadStatus = VocServiceWrapper.getInstance(getApplicationContext()).getDownloadStatus(feedId);
+  long bytesDownloaded = downloadStatus.getBytesDownloaded();
+  long bytesRemaining = downloadStatus.getBytesRemaining();
+}
+```
+
 # CODE SAMPLES
 
 ## INTRODUCTION
