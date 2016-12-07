@@ -9,7 +9,7 @@ language_tabs:
 search: true
 ---
 
-# INTRODUCTION
+# Introduction
 
 ### Welcome!
 
@@ -35,7 +35,7 @@ PCD provides an exceptional video experience to the mobile consumer - the playba
 * Increasing quality
 * Optimizing video delivery
 
-# GETTING STARTED
+# Getting started
 
 Welcome to Akamai Predictive Content Delivery API Guide
 
@@ -46,7 +46,7 @@ Understanding this API has been made as simple as possible with the use of image
 This API has been developed to provide a platform into which you can manage content that will be pre-positioned on end user mobile devices.
 
 
-## ANDROID
+## Android
 
 Predictive Content Delivery (PCD) SDK prepositions content, based on user preferences and policies set up between the client and server. There is absolutely no need for a developer to initiate downloads as prepositioning operates on a notification basis. Downloads also continue whether the app is active in the foreground, running in the background, or entirely closed. The SDK acts as a data cache, providing access to content along with its current download state. 
 
@@ -343,7 +343,7 @@ return NO;
 Need Help? 
 If questions come up along the way, check out the frequently asked questions. Still puzzled? Visit our community discussion forums, probably there are others who have already bumped into the same issue as yours.
 
-# HOW PCD WORKS
+# How PCD works
 
 ![How PCD Works] (pcdarch.jpg) 
 
@@ -368,9 +368,9 @@ The videos are either picked from the Akamai cloud or the general internet.
 In case, the content generators have no content to push, general content from the internet will be uploaded to the app. E.g. Bloomberg TV.
 
 
-# PCD INTEGRATION FOR THE USER TRIGGERING DOWNLOADS
+# PCD integration for the user triggering downloads
 
-## STEPS TO INTEGRATE THE SDK
+## Steps to integrate the SDK
 
 ## Initialization
 
@@ -441,7 +441,7 @@ public AnaFeedItem getFeedItemFromFeedId(String feedId){
    //This method queries the database and constructs the feedItem for the given feedId
 }
 
-## STEPS TO INTEGRATE API
+## Steps to integrate API
 
 ## Download Feeds
 
@@ -525,9 +525,9 @@ public void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-# CODE SAMPLES
+# Code Samples
 
-## INTRODUCTION
+## Introduction
 
 The Predictive Content Delivery (PCD) solution provides a platform into which you can manage content to be pre-positioned on end user mobile devices. We have created this guide to help you provision content in the PCD application.
 
@@ -536,8 +536,7 @@ All calls must use the format <code>/ingest/v1/{api_call}</code>.
 
 For example: <code> /ingest/v1/updateContentById </code>
 
-## AUTENTICATION
-
+## Autentication
 > Example of Content Provider ID and Access Token authentication:
 
 ```shell
@@ -652,7 +651,7 @@ Response 400 (application/json)
 </code>
 
 
-## GETTING A CATEGORY LIST
+## Getting a category list
 > Example Code for Getting a Category List:
 
 ```php
@@ -783,7 +782,7 @@ HEADERS
 Content-Type:application/json
 
 
-## ADDING CONTENT
+## Adding content
 
 > Example Code - Adding Content (mp4 format & m3u8 format)
 
@@ -1028,7 +1027,7 @@ HEADERS
 
 Content-Type:application/json
 
-## UPDATING CONTENT METADATA BY ID
+## Updating content metatdat by ID
 
 > Example Code - Updating Content Metadata By ID
 
@@ -1210,9 +1209,9 @@ HEADERS
 Content-Type:application/json
 
 
-## PURGE BY CONTENT ID
+## Purge by content ID
 
->Example Code for Purging Content By ID:
+> Example Code for Purging Content By ID:
 
 ```php
 <?php
@@ -1343,7 +1342,7 @@ Content-Type:application/json
 ```
 
 
-## GETTING ALL CONTENT IDs
+## Getting all content by IDs
 
 > Example Code for Getting All Content By IDs:
 
@@ -1472,7 +1471,7 @@ Headers
 Content-Type:application/json
 
 
-## GETTING CONTENT METADATA BY ID
+## Getting content metadata by ID
 
 > Example code for Getting Content Metadata By IDs:
 
@@ -1682,7 +1681,7 @@ Headers
 
 Content-Type:application/json
 
-## GETTING CONTENT STATUS
+## Getting content status
 
 > Example code for Getting Content Status:
 
@@ -1816,7 +1815,7 @@ HEADERS
 
 Content-Type:application/json
 
-## ACTIVATING CONTENT
+## Activating content
 
 > Example code for Activating Content:
 
@@ -1946,7 +1945,7 @@ HEADERS
 
 Content-Type:application/json
 
-## SETTING CONTENT AS INACTIVE
+## Setting content as inactive
 
 > Example Code Setting Content As Inactive:
 
@@ -2064,7 +2063,7 @@ HEADERS
 
 Content-Type:application/json
 
-# TEST APIs
+# Test APIs
 
 A tool to test the APIs for Getting category list, Adding content, Updating content metadata by ID, Purge by content ID, Getting all content IDs, Getting content metadata by IDs, Getting content status, Activating content, Setting content as active. 
 
