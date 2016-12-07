@@ -1906,4 +1906,8 @@ HEADERS
 
 Content-Type:application/json
 
-# <a href="http://enterprisesmail.com/akamai_API/tool.html" target="blank" class="api-tool">TEST APIs</a>
+# TEST APIs
+
+A tool to test the APIs for Getting category list, Adding content, Updating content metadata by ID, Purge by content ID, Getting all content IDs, Getting content metadata by IDs, Getting content status, Activating content, Setting content as active. 
+
+<a href="http://enterprisesmail.com/akamai_API/tool.html" target="blank" class="api-tool">API Test Tool</a>
