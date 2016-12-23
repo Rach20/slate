@@ -1,0 +1,2738 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Akamai Documentation</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="Akamai" data-languages="[&quot;shell&quot;,&quot;php&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="images/logo.png" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">cURL</a>
+              <a href="#" data-language-name="php">PHP</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="introduction">Introduction</h1>
+
+<h3 id="welcome">Welcome!</h3>
+
+<p>Akamai&rsquo;s Predictive Content Delivery technology is constructed and designed so as to provide steady, high-quality mobile video experiences with no hassles of time lag, buffering, stalling or any other interruption - regardless of geographic location, time of day, or environmental obstructions.</p>
+
+<p>PCD provides an exceptional video experience to the mobile consumer - the playback is instantaneous, easy to dig videos and more to it, they are continuously available. Also, the cCODE ontent delivered to the mobile user is according to his/her preferences.</p>
+
+<h3 id="the-benefits-pcd-will-bring-to-your-business">The Benefits PCD will bring to your Business</h3>
+
+<ul>
+<li>With instant start-up videos, the user experience is going to sore high, providing the users with superior video experience. No buffering or stalling regardless of location or network conditions.</li>
+<li>Automatic content refresh will increase discovery and consumption of mobile videos with personalized downloads</li>
+<li>Build customer loyalty with a differentiated and a unique service quality.</li>
+<li>Provide continuous access to your content by caching content on the device.</li>
+</ul>
+
+<h3 id="fascinating-facts-about-pcd">Fascinating Facts about PCD</h3>
+
+<ul>
+<li>Off board cellular capacity and Wi-Fi</li>
+<li>Device storage</li>
+<li>Predictive analytics</li>
+<li>Smart battery management</li>
+<li>Extending video consumption</li>
+<li>Improving audience engagement</li>
+<li>Increasing quality</li>
+<li>Optimizing video delivery</li>
+</ul>
+
+<h1 id="getting-started">Getting started</h1>
+
+<p>Welcome to Akamai Predictive Content Delivery API Guide</p>
+
+<p>The first step to using or evaluating any API is to get an API client up and running. This section of the documentation is intended to get you up-and-running with - Predictive Content Delivery API and give a high level conceptual overview of the API. We&rsquo;ll cover everything you need to know.</p>
+
+<p>Understanding this API has been made as simple as possible with the use of images, which better explain the various steps.</p>
+
+<p>This API has been developed to provide a platform into which you can manage content that will be pre-positioned on end user mobile devices.</p>
+
+<h2 id="android">Android</h2>
+
+<p>Predictive Content Delivery (PCD) SDK prepositions content, based on user preferences and policies set up between the client and server. There is absolutely no need for a developer to initiate downloads as prepositioning operates on a notification basis. Downloads also continue whether the app is active in the foreground, running in the background, or entirely closed. The SDK acts as a data cache, providing access to content along with its current download state. </p>
+
+<p>Configuring your project to support these features is covered below.</p>
+
+<h2 id="prerequisites-for-using-the-sdk-obtaining-key-for-gcm">Prerequisites for using the SDK (Obtaining key for GCM)</h2>
+
+<p>To generate a key from Google&rsquo;s firebase console using GCM in android app, follow these instructions:</p>
+
+<ul>
+<li>Go to <a href="https://console.firebase.google.com/project/_/settings/cloudmessaging">firebase console</a>.</li>
+<li>Create a new project.</li>
+<li>It will give you a server-key that will be used by backend developers when creating push requests</li>
+<li>You also need to save the Sender ID given here that will be used on Android for receiving push notifications.</li>
+</ul>
+
+<p><img alt="Prerequisites for using the SDK" src="images/1.png" /></p>
+
+<h2 id="file-location-to-add-dependencies">File Location to Add Dependencies</h2>
+
+<p>Android projects quite often rely on 3rd party libraries and SDKs, and have thier own way to add the dependencies.</p>
+
+<p>You need to add these 3rd party dependencies to a file named build.gradle(Module:app) which is present by default in Android (Refer to the image, the file is highlighted in blue). This file is located in a folder named &lsquo;app&rsquo;.</p>
+
+<blockquote>
+<p>Code Snippet</p>
+</blockquote>
+<pre class="highlight plaintext"><code>apply plugin: 'com.android.application'
+
+
+android {
+  compileSdkVersion 24
+  buildToolsVersion "24.0.1"
+
+
+  defaultConfig {
+      applicationId "akamai.sdk.demo"
+      minSdkVersion 15
+      targetSdkVersion 24
+      versionCode 1
+      versionName "1.0"
+  }
+  buildTypes {
+      release {
+          minifyEnabled false
+          proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+      }
+  }
+}
+
+
+dependencies {
+  compile fileTree(dir: 'libs', include: ['*.jar'])
+  testCompile 'junit:junit:4.12'
+  compile 'com.android.support:appcompat-v7:24.2.0'
+}
+</code></pre>
+
+<p><img alt="File Location to Add Dependencies" src="images/2.png" /></p>
+
+<h2 id="dependencies-to-be-added">Dependencies to be Added</h2>
+
+<p>To start using the SDK, you will be required to add the following dependencies:</p>
+
+<p><code>
+compile &#39;com.google.android.gms:playservicesbase:7.0.0&#39;<br>
+compile &#39;com.google.android.gms:playservicesgcm:7.0.0&#39;<br>
+compile &#39;com.google.android.gms:playservicesads:7.0.0&#39;<br>
+compile(name:&#39;voc­sdk­release­{version}&#39;, ext:&#39;aar&#39;) <br>
+</code></p>
+
+<p>The requirement is that, the project should be implementing API 15 or greater. These dependencies include Google Play services, Google Cloud Messaging and all the dependencies required for PCD.</p>
+
+<blockquote>
+<p>Code Snippet</p>
+</blockquote>
+<pre class="highlight plaintext"><code>apply plugin: 'com.android.application'
+
+
+android {
+  compileSdkVersion 24
+  buildToolsVersion "24.0.1"
+
+
+  defaultConfig {
+      applicationId "akamai.sdk.demo"
+      minSdkVersion 15
+      targetSdkVersion 24
+      versionCode 1
+      versionName "1.0"
+  }
+  buildTypes {
+      release {
+          minifyEnabled false
+          proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+      }
+  }
+}
+
+
+dependencies {
+compile 'com.google.android.gms:playservicesbase:7.0.0'
+compile 'com.google.android.gms:playservicesgcm:7.0.0'
+compile 'com.google.android.gms:playservicesads:7.0.0'
+compile(name:'voc­sdk­release­{version}', ext:'aar')
+}
+</code></pre>
+
+<p><img alt="Dependencies to be Added" src="images/3.png" /></p>
+
+<h2 id="component-details-file">Component Details File</h2>
+
+<p>All the details of the components being used in the project are present in a file known as AndroidManifest.xml, which is more like an index. It contains information about all the Activity, Broadcast Receiver, User Permissions and more.. To locate this file, you need to navigate to app&gt;src&gt;main.</p>
+
+<p><img alt="Component Details File" src="images/4.png" /></p>
+
+<h2 id="add-permissions">Add Permissions</h2>
+
+<p>For proper functioning of the SDK, you need some permissions from the user. Permissions like Internet, Access Network State, WiFi State Access and the permission to write to external storage. All these permissions are required to be added to the <em>AndroidManifest.xml</em> file.</p>
+
+<p>Following are the permissions:</p>
+
+<blockquote>
+<p>Code Snippet </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;manifest</span> <span class="na">xmlns:android=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
+  <span class="na">package=</span><span class="s">"akamai.sdk.demo"</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.INTERNET"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.ACCESS_NETWORK_STATE"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.ACCESS_WIFI_STATE"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.WRITE_EXTERNAL_STORAGE"</span> <span class="nt">/&gt;</span>
+
+
+  <span class="nt">&lt;application</span>
+      <span class="na">android:allowBackup=</span><span class="s">"true"</span>
+      <span class="na">android:icon=</span><span class="s">"@mipmap/ic_launcher"</span>
+      <span class="na">android:label=</span><span class="s">"@string/app_name"</span>
+      <span class="na">android:supportsRtl=</span><span class="s">"true"</span>
+      <span class="na">android:theme=</span><span class="s">"@style/AppTheme"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;activity</span> <span class="na">android:name=</span><span class="s">".MainActivity"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;intent-filter&gt;</span>
+              <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">"android.intent.action.MAIN"</span> <span class="nt">/&gt;</span>
+
+
+              <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">"android.intent.category.LAUNCHER"</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;/intent-filter&gt;</span>
+      <span class="nt">&lt;/activity&gt;</span>
+  <span class="nt">&lt;/application&gt;</span>
+
+<span class="nt">&lt;/manifest&gt;</span>
+</code></pre>
+
+<p><img alt="Add Permissions" src="images/5.png" /></p>
+
+<h2 id="add-a-receiver-and-a-provider">Add a Receiver and a Provider</h2>
+
+<p>For the SDK to work correctly, we need to add a receiver to listen to Voc Status messages and a provider to access the cached content.</p>
+
+<p>It can be added in <em>AndroidManifest.xml</em> inside the application tag.</p>
+
+<blockquote>
+<p>Code Snippet </p>
+</blockquote>
+<pre class="highlight plaintext"><code>&lt;receiver
+android:name="akamai.sdk.demo.VocBroadcastReceiver"&gt;
+&lt;intent­filter&gt;
+&lt;action android:name="com.akamai.android.sdk.ACTION_VOC_STATUS" /&gt;
+&lt;category android:name="akamai.sdk.demo" /&gt;
+&lt;/intent­filter&gt;
+&lt;/receiver&gt;
+
+
+&lt;provider
+android:name="com.akamai.android.sdk.db.AnaContentProvider"
+android:authorities="akamai.sdk.demo.AnaContentProvider" &gt;
+&lt;/provider&gt;
+</code></pre>
+
+<p><img alt="Add a Receiver and a Provider" src="images/66.png" /></p>
+
+<h2 id="ios">iOS</h2>
+
+<p>Predictive Content Delivery (PCD) SDK prepositions content, based on user preferences and policies set up between the client and server. There is absolutely no need for a developer to initiate downloads as prepositioning operates on a notification basis. Downloads also continue whether the app is active in the foreground, running in the background, or entirely closed. The SDK acts as a data cache, providing access to content along with its current download state. Configuring your project to support these features is covered below.</p>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<p>The PCD SDK requires <strong>iOS 8</strong> or higher.</p>
+
+<p>For registration, a <strong>PCD SDK license key</strong> is a mandate.</p>
+
+<p>The application&rsquo;s product name <strong>(Project → Choose target → Build Settings → Packaging → Product name)</strong> must match the name provided on the PCD Web portal SDK license page. The portal field for this is <strong>&ldquo;iOS Application ID.&rdquo;</strong> The app must enable Background Execution and Remote Notifications in order to preposition the content.</p>
+
+<p><img alt="Prerequisites" src="images/7.png" /></p>
+
+<h2 id="add-the-framework">Add the framework</h2>
+
+<ul>
+<li>Download the PCD SDK and unzip it in a folder under your project, e.g. <em>~/myproject/pcd</em>sdk._</li>
+<li>Navigate to <strong>VocSdk.framework</strong> under <em>~/myproject/pcd_sdk/iphoneos/</em> and copy it to your project folder, e.g. ~/myproject/VocSdk.framework. This is done so that the framework is available before the first build and there-on you can add it to your project. On each build afterward it will be copied here by the copy_vocsdk build phase script.</li>
+<li>Add the framework to your <strong>Xcode</strong> project.
+
+<ul>
+<li>Open your project in Xcode.</li>
+<li>Open the <strong>File</strong> menu.</li>
+<li>Click <strong>Add Files</strong> to</li>
+<li>Choose <strong>~/myproject/VocSdk.framework</strong></li>
+</ul></li>
+</ul>
+
+<p><img alt="Add the framework" src="images/8.png" /></p>
+
+<h2 id="link-the-sdk-to-the-project">Link the SDK to the project</h2>
+
+<p>Now, you will need to link the SDK to your project, follow these steps:</p>
+
+<p>By clicking the project name in the Project navigator, open <strong>project settings.</strong>
+Click the <strong>General tab.</strong>
+Under <strong>Embedded Binaries,</strong> click &rsquo;+&rsquo; and choose <strong>VocSdk.framework</strong>
+Click Add.</p>
+
+<p><img alt="Link the SDK to the project" src="images/9.png" /></p>
+
+<h2 id="add-a-build-phase-to-project-settings">Add a build phase to Project settings</h2>
+
+<p>Before you go ahead building your app, the correct framework for your platform simulator or device must be copied into the right place and this requires a build phase to be added to your project settings.</p>
+
+<p>Follow these set of instructions:</p>
+
+<ul>
+<li>Choose your <strong>build target* in Project Settings, then click on **Build Phases.</strong></li>
+<li>Next, to add a new build phase, click the &rsquo;+&rsquo; and choose <strong>&#39;New Run Script Phase.&rsquo;</strong></li>
+<li>Drag this build phase to position it after Target Dependencies.</li>
+<li>Optionally, single click its name and rename it to <strong>copy_vocsdk.</strong></li>
+<li>To expand the copy_vocsdk row, click the arrow.</li>
+<li>Leave the default shell setting of <em>/bin/sh.</em></li>
+<li>The following script needs to be added to the script area.</li>
+</ul>
+
+<p>The &ldquo;copy_vocsdk.sh&rdquo; path is relative to your .xcodeproj file and will need modification depending on where you unzipped it (in this example, it is pcd_sdk).</p>
+
+<p><code>. ./pcd_sdk/copy_vocsdk.sh &quot;${PROJECT_DIR}/pcd_sdk&quot;</code></p>
+
+<p>The second parameter, &ldquo;${PROJECT_DIR}/pcd_sdk&rdquo;, is the location of the /iphoneos and /iphonesimulator folders from the distribution archive.</p>
+
+<p>In this example, the folder structure is as follows: <br>
+/myproject/myproject.xcodeproj /myproject/pcd_sdk/copy_vocsdk.sh /myproject/pcd_sdk/iphoneos/ /myproject/pcd_sdk/iphonesimulator/ </p>
+
+<p>The script will copy the correct VocSdk.framework to /myproject/ folder at the start of every build.</p>
+
+<p>This is how the build phase will finally look.</p>
+
+<p><img alt="Add a build phase to Project settings" src="images/10.png" /></p>
+
+<h2 id="integrate-your-ios">Integrate your iOS</h2>
+
+<p>Integrating with your iOS Application - Including the SDK.</p>
+
+<p>Follow these instructions to integrate your iOS.</p>
+
+<p>Wherever the SDK is required, import the VocSdk header in any of the class files. For your app, you will need to define a single VocService object.</p>
+
+<p>Create your VocService object in the app delegate to make the SDK available early in the app lifecycle and to simplify access to the VocService from other classes.</p>
+
+<p><strong>#import @property (strong, nonatomic) id vocService;</strong></p>
+
+<h4 id="initialization">Initialization</h4>
+
+<p>The SDK is initialized by the VocServiceFactory call</p>
+
+<p>createServiceWithDelegate:delegateQueue:options:error:.</p>
+
+<p>To begin prepositioning files as early as possible, initialization and registration should take place early in the app lifecycle. The recommended place for this is in AppDelegate&rsquo;s application:didFinishLaunchingWithOptions:</p>
+
+<p>The create call inputs a reference to the SDK delegate as well as a configuration options dictionary. To respond to SDK activity, the SDK delegate is the class you need to designate.</p>
+
+<p>The example below is inserted into <strong>AppDelegate.m.</strong> It initializes the SDK and tells it that AppDelegate will be the delegate to handle SDK messages.</p>
+
+<blockquote>
+<p>Code Snippet</p>
+</blockquote>
+<pre class="highlight plaintext"><code>(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{ 
+NSError *error = nil;
+self.vocService = [VocServiceFactory createServiceWithDelegate:self delegateQueue:[NSOperationQueue mainQueue] options:nil error:&amp;error]; 
+if (!self.vocService)
+{
+// error handling ­ could not start service 7 
+return NO;
+} 
+// app initialized return YES;
+} 
+
+</code></pre>
+
+<p><img alt="Integrate your iOS" src="images/11.png" /></p>
+
+<p>Need Help? 
+If questions come up along the way, check out the frequently asked questions. Still puzzled? Visit our community discussion forums, probably there are others who have already bumped into the same issue as yours.</p>
+
+<h1 id="how-pcd-works">How PCD works</h1>
+
+<p><img alt="How PCD Works" src="images/pcdarch.jpg" /> </p>
+
+<p>The App has 3 features:</p>
+
+<ul>
+<li><strong>Predictive Analysis</strong> - Akamai&rsquo;s recommendation engine curates personalized content either through a set of customer preference settings or as users interact with the application.</li>
+<li><strong>Download manager</strong> - The download manager downloads all the content to the device without any barriers or hassle for better mobile user experience.</li>
+<li><strong>Storage and Battery Management</strong> - When a mobile users launches the video, the video is launched instantly with no buffering, lag or stalling. This is because the videos are stored on the mobile device and hence the playback delivered is of the highest quality and not affected by network conditions. 
+Mobile users do not have to worry about manually clearing the stored or outdated video content as the videos refresh on a regular basis and outdated videos are removed.</li>
+<li>The App and Akamai PCD communication is bidirectional. They communicate with each other over cellular data and Wi-Fi for content to be uploaded on the app with Https being the transport medium.</li>
+</ul>
+
+<p>Internally, that is within the Akamai Predictive Content Delivery, the client API, web server, predefined window download manager communicate with the predictive engine &amp; content interface.</p>
+
+<p>The predictive engine &amp; content interface in turn bidirectionally communicate with the content aggregators and media companies &amp; OVPs to generate and gather the required content.</p>
+
+<p>Once the content aggregators and media companies &amp; OVPs send the content, the content is stored in the storage.</p>
+
+<p>The Predictive engine then looks into the user&rsquo;s preferences and picks the right content that will be displayed to the user.</p>
+
+<p>The videos are either picked from the Akamai cloud or the general internet.</p>
+
+<p>In case, the content generators have no content to push, general content from the internet will be uploaded to the app. E.g. Bloomberg TV.</p>
+
+<h1 id="pcd-integration-for-the-user-triggering-downloads">PCD integration for the user triggering downloads</h1>
+
+<h2 id="steps-to-integrate-the-sdk">Steps to integrate the SDK</h2>
+
+<h2 id="initialization">Initialization</h2>
+
+<blockquote>
+<p>Code Snippet:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>@Override
+protected void onCreate(Bundle savedInstanceState) {
+    VocService vocService = VocService.createVocService(getApplicationContext());
+}
+</code></pre>
+
+<p>The first step after app start would be to create an instance of VocService using VocService.createInstance(Context applicationContext). This should be done in the onCreate of MainActivity or MainApplication class that extends Application class. </p>
+
+<h2 id="configuration">Configuration</h2>
+<pre class="highlight plaintext"><code>@Override
+protected void onCreate(Bundle savedInstanceState) {
+    VocConfigBuilder configBuilder = new VocConfigBuilder(getApplicationContext());
+    configBuilder.disableBackgroundDownloads();
+  }
+</code></pre>
+
+<p>Setup the configuration using VocConfigBuilder in the onCreate of MainActivity or MainApplication class that extends Application class. For example if the client app wants to control downloads manually, it can call disableBackgroundDownloads(). To be clear, this call means no content will be queued automatically for downloads, until user makes a call to trigger a specific download. Once user queues a content for download, in normal background download modes, that content will be downloaded in background.</p>
+
+<h2 id="registration">Registration</h2>
+<pre class="highlight plaintext"><code>protected void onCreate(Bundle savedInstanceState) {
+      VocService vocService = VocService.createVocService(getApplicationContext()); 
+
+    VocRegistrationStatus status = vocService.getRegistrationStatus();
+    if(status.isActive()){
+        //Launch list activity to load content from ContentProvider
+    }
+    else{
+      //Register using pre-configured API key
+  VocRegistrationInfo regInfo = new VocRegistrationInfo(sdkApikey);   
+        vocService.register(regInfo , new VocService.VocAysncResponseHandler(new Handler()){
+        public void onSuccess(){
+              //Launch activity to list content
+         }
+         public void onFailure(String message){
+       //Display error message 
+         }
+  );
+    }
+ }
+</code></pre>
+
+<p>The next step is to register with server using VocService.register() API . Register call is non-blocking so client would need to pass Async handler for registration status result.  Registration is a one time event, client can check the registration status using VocService.getRegistrationStatus() to see if its already registered . Registration can be done using SDK API key.</p>
+
+<h2 id="access-the-apis">Access the APIs</h2>
+
+<p>All the SDK APIs need a feedId as an input. A feedId uniquely identifies each video in the database.
+SDK provides API which takes in video URL as the input and returns the the corresponding feedId. </p>
+<pre class="highlight plaintext"><code>public String getFeedIdFromUrl(String url){
+   //This method queries the database and returns the feedId for the given URL.
+}
+</code></pre>
+
+<p>AnaFeedItem is a model class that encapsulates data about each video. Data about each feed item includes feedId, title, url to download the feed, feed type, feed size, feed download status, thumbnail info etc. Client app can use the AnaFeedItem object to get the relevant information related to a video.</p>
+
+<p>public AnaFeedItem getFeedItemFromFeedId(String feedId){
+   //This method queries the database and constructs the feedItem for the given feedId
+}</p>
+
+<h2 id="steps-to-integrate-api">Steps to integrate API</h2>
+
+<h2 id="download-feeds">Download Feeds</h2>
+
+<blockquote>
+<p>Code snippet</p>
+</blockquote>
+<pre class="highlight plaintext"><code>String url = “https://samplevideo.mp4”;
+String feedId = getFeedIdFromUrl(url); //This method queries the DB and gets the feedId.
+final VocService vocService = VocService.createVocService(getApplicationContext());
+VocServiceResult result = vocService.downloadFeeds(new String[]{feedId});
+</code></pre>
+
+<p>Client application can call the API method VocService.downloadFeeds to download a specific list of feeds by passing their feedIds as argument. All the feeds in the list are queued for download. Also multiple calls to this method results in queuing downloads. Note - Calling this API for the same feedId will NOT result in the download of the corresponding video twice.</p>
+
+<p>After calling this method, client app can listen to events (success or failure) by registering VocStatusReceiver. The method onPolicyStatusFailure(context, policyCode) is called if the device is out of policy like not connected to wifi, low battery etc. The method onNewContentAvailable(context, numOfFeeds) is called when the new content is downloaded.</p>
+
+<h2 id="pause-download">Pause Download</h2>
+<pre class="highlight plaintext"><code>String url = “https://samplevideo.mp4”;
+String feedId = getFeedIdFromUrl(url); //This method queries the DB and gets the feedId.
+final VocService vocService = VocService.createVocService(getApplicationContext());
+vocService.pauseFeedDownload(feedId);
+</code></pre>
+
+<p>Client application can call the API method VocService.pauseFeedDownload to pause the ongoing download of a video by passing the feedId as the argument</p>
+
+<h2 id="delete-file">Delete File</h2>
+<pre class="highlight plaintext"><code>String url = “https://samplevideo.mp4”;
+String feedId = getFeedIdFromUrl(url); //This method queries the DB and gets the feedId.
+final VocService vocService = VocService.createVocService(getApplicationContext());
+VocServiceResult result = vocService.deleteFiles(feedId, false);
+</code></pre>
+
+<p>Client application can call the API method VocService.deleteFiles to delete all the files related to the video from the device by passing the feedId in the argument. Optionally app can retain the thumbnail of the video by setting deleteThumbnail to false. Note - This API only deletes the content associated with the video and not its metadata. </p>
+
+<h2 id="download-status">Download Status</h2>
+<pre class="highlight plaintext"><code>public class ClientBroadcastReceiver extends VocDownloadStatusReceiver {
+  @Override
+  protected void onFeedDownloadStatus(Context c, String feedId, long bytesDownloaded, long bytesRemaining, long eta) {
+     //This method is called whenever a broadcast is sent.
+  }
+}
+</code></pre>
+
+<p>Client application can dynamically register the BroadcastReceiver to listen to download status like bytes downloaded, bytes remaining and ETA for download. Client app should subclass VocDownloadStatusReceiver class and implement the callback method onFeedDownloadStatus. Use the parameters of the method to show download progress in the UI.</p>
+<pre class="highlight plaintext"><code>private BroadcastReceiver receiver;
+
+@Override
+public void onCreate(Bundle savedInstanceState) {
+  IntentFilter filter = new IntentFilter();
+  filter.addAction(“com.akamai.android.sdk.ACTION_VOC_DOWNLOAD_STATUS”);
+  filter.addCategory(getPackageName());
+  receiver = new ClientBroadcastReceiver();
+  context.registerReceiver(receiver, filter);
+}
+
+@Override
+public void onDestroy() {
+  context.unregisterReceiver(receiver);
+  super.onDestroy();   
+}
+</code></pre>
+
+<p>Alternatively instead of listening, the client app can use the API method VocService.getDownloadStatus by passing the feedId, to get the download information of that particular feed item whenever they need.</p>
+<pre class="highlight plaintext"><code>@Override
+public void onCreate(Bundle savedInstanceState) {
+  AnaFeedDownloadStatus downloadStatus = VocServiceWrapper.getInstance(getApplicationContext()).getDownloadStatus(feedId);
+  long bytesDownloaded = downloadStatus.getBytesDownloaded();
+  long bytesRemaining = downloadStatus.getBytesRemaining();
+}
+</code></pre>
+
+<h1 id="code-samples">Code Samples</h1>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>The Predictive Content Delivery (PCD) solution provides a platform into which you can manage content to be pre-positioned on end user mobile devices. We have created this guide to help you provision content in the PCD application.</p>
+
+<p>The API is currently in its first iteration. 
+All calls must use the format <code>/ingest/v1/{api_call}</code>.</p>
+
+<p>For example: <code> /ingest/v1/updateContentById </code></p>
+
+<h2 id="autentication">Autentication</h2>
+
+<blockquote>
+<p>Example of Content Provider ID and Access Token authentication:</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> -d 
+<span class="s1">'{"access_token":"5278fb26f31bcbf29594bf23bd411879d122a2508d511448d478ab81",
+content_id":"5907", "content_provider_id":"cnbc"}'</span>
+-k <span class="s1">'https://23.79.234.237/ingest/v1/getContentById'</span> 
+
+curl -H <span class="s2">"Content-Type: application/json"</span> -d 
+<span class="s1">'{"access_token":"5278fb26f31bcbf29594bf23bd411879d122a2508d511448d478ab81",
+"content_provider_id":"cnbc"}'</span>
+-k <span class="s1">'https://23.79.234.237/ingest/v1/getContentIds'</span> 
+
+curl -H <span class="s2">"Content-Type: application/json"</span> -d 
+<span class="s1">'{"access_token":"5278fb26f31bcbf29594bf23bd411879d122a2508d511448d478ab81",
+content_id":"5907", "content_provider_id":"cnbc"}'</span>
+-k <span class="s1">'https://23.79.234.237/ingest/v1/getActivityStatusById'</span> 
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+<span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/getContentById"</span><span class="p">,</span>
+<span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+<span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+<span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="s2">"{\"</span><span class="nx">content_provider_id\</span><span class="s2">": </span><span class="se">\"</span><span class="s2">cnbc</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">access_token</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">5278fb26f31bcbf29594bf23bd411879d122a2508d511448d478ab81</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="nx">\</span><span class="s2">"conetnt_id</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">5907</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span>
+<span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+<span class="s2">"content-type: application/json"</span>
+<span class="p">)</span>
+<span class="p">));</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+<span class="cp">?&gt;</span> 
+
+<span class="cp">&lt;?php</span>
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+<span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/getContentIds"</span><span class="p">,</span>
+<span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+<span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+<span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="s2">"{\"</span><span class="nx">content_provider_id\</span><span class="s2">": </span><span class="se">\"</span><span class="s2">cnbc</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">access_token</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">5278fb26f31bcbf29594bf23bd411879d122a2508d511448d478ab81</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">conetnt_id</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">5907</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span>
+<span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+<span class="s2">"content-type: application/json"</span>
+<span class="p">)</span>
+<span class="p">));</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+<span class="cp">?&gt;</span> 
+
+<span class="cp">&lt;?php</span>
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+<span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/getActivityStatusById"</span><span class="p">,</span>
+<span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+<span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+<span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="s2">"{\"</span><span class="nx">content_provider_id\</span><span class="s2">": </span><span class="se">\"</span><span class="s2">cnbc</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">access_token</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">5278fb26f31bcbf29594bf23bd411879d122a2508d511448d478ab81</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">conetnt_id</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">5907</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span>
+<span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+<span class="s2">"content-type: application/json"</span>
+<span class="p">)</span>
+<span class="p">));</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+<span class="cp">?&gt;</span> 
+</code></pre>
+
+<p>An access token and a content provider ID are provided to content providers who are authorized to use the API .</p>
+
+<p>Also, to submit content to the PCD as an aggregation of multiple content providers, you must have an access token for each content provider. To ensure a successful request, you must use each access token with the corresponding provider.</p>
+
+<p>You must use both values in the body of any post call to authenticate the API request.</p>
+
+<p>The following provides a sample part of an API request (application/json) containing the content provider ID and the access token:</p>
+
+<p><code>
+{ <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;content_provider_id&quot;: &quot;akamai_internal&quot;,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;access_token&quot;: &quot;ab203jduns03kd0&quot;,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;...<br>
+}
+</code></p>
+
+<h3 id="return-codes">Return Codes</h3>
+
+<p>The response containing a &ldquo;return code&rdquo; value returns each API call with a JSON. The meaning of the return code depends on the context of the API call.</p>
+
+<p>A sample of return codes and their interpretation are listed in the following table:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Status</th>
+<th>Error Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success Success.</td>
+<td>Content Successfully.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Missing data</td>
+<td>The request JSON is missing essential data to complete the request.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Access denied</td>
+<td>The access token validation failed.</td>
+</tr>
+<tr>
+<td>422</td>
+<td>Duplicate</td>
+<td>Provider tried to add a piece of content with a unique ID that is already in the database.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Unknown</td>
+<td>An unknown error occurred while processing the request.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Bad content id</td>
+<td>The provided content ID is not associated with the content provider.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Update not permitted</td>
+<td>The access token cannot update the specified content.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Updating unique id error</td>
+<td>The request is unable to update the unique ID to a value that matches another record in the database.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Purge not permitted</td>
+<td>The access token is unable to purge the specified content.</td>
+</tr>
+</tbody></table>
+
+<p>Example of response from a request with error code:</p>
+
+<p><code>
+Response 400 (application/json)
+<br>
+{<br>
+&nbsp;&nbsp;&quot;return_code&quot;: &quot;Access denied&quot;<br>
+}<br>
+</code></p>
+
+<h2 id="getting-a-category-list">Getting a category list</h2>
+
+<blockquote>
+<p>Example Code for Getting a Category List:</p>
+</blockquote>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+<span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/getContentCategories"</span><span class="p">,</span>
+<span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+<span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+<span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="s2">"{\"</span><span class="nx">content_provider_id\</span><span class="s2">": </span><span class="se">\"</span><span class="s2">akamai_internal</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">access_token</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span>
+<span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+<span class="s2">"content-type: application/json"</span>
+<span class="p">)</span>
+<span class="p">));</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+<span class="cp">?&gt;</span> 
+</code></pre>
+<pre class="highlight shell"><code>curl -X POST -H <span class="s2">"Content-Type: application/json"</span> -d 
+<span class="s1">'{"content_provider_id": "akamai_internal",
+"access_token": "B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE" 
+}'</span> <span class="s2">"https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/getContentCategories"</span>
+</code></pre>
+
+<p>When using the API to add or update content, you must know the list of available categories as the initial PCD application release supports only a certain set of categories with which you can associate content.</p>
+
+<p>To view a list of available content categories, you can use the getContentCategories API call.</p>
+
+<p><em>Note:</em> &ldquo;Trending&rdquo; is currently a PCD reserved keyword; it is not a content category.</p>
+
+<p>To get a list of content categories, use the following command:</p>
+
+<p><code> POST /ingest/v1/getContentCategories </code></p>
+
+<p><em>URI Parameters:</em> content_provider_id,access_token</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>access_token</td>
+<td>true</td>
+<td>Access token associated with each provider</td>
+</tr>
+<tr>
+<td>content_provider_id</td>
+<td>true</td>
+<td>ID associated with each provider</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-codes">RETURN CODES</h3>
+
+<p>The following table provides a list of possible return codes:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Status</th>
+<th>Error Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success Success.</td>
+<td>Request completed.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Missing data</td>
+<td>Request json is missing essential data to complete the request</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Access denied</td>
+<td>Access Token validation failed</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Unknown</td>
+<td>Unknown error occurred while processing the request</td>
+</tr>
+</tbody></table>
+
+<h3 id="request">Request</h3>
+
+<p>Headers</p>
+
+<p>Content-Type: application/json
+<br>
+<code>
+Body<br>
+{ <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;content_provider_id&quot;: &quot;the id of the content provider&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;access_token&quot;: &quot;access token as provisioned by the MNO portal&quot;<br>
+}<br>
+</code></p>
+
+<h3 id="response-200">Response 200</h3>
+
+<p>Headers</p>
+
+<p>Content-Type: application/json
+<br>
+<code>
+Body <br>
+{ <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;content_category&quot;:&quot;string of a supported content category&quot; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+}
+</code></p>
+
+<h3 id="response-400">Response 400</h3>
+
+<p>Headers</p>
+
+<p>Content-Type: application/json
+<br>
+<code>
+Body <br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;return_code&quot;: &quot;a return code here&quot; <br>
+}
+</code></p>
+
+<h3 id="response-500">Response 500</h3>
+
+<p>Headers</p>
+
+<p>Content-Type: application/json
+<br>
+<code>
+Body<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;return_code&quot;: &quot;Unknown&quot; <br>
+}
+</code></p>
+
+<h4 id="result">Result:</h4>
+
+<blockquote>
+<p>Response body</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+</span><span class="s2">"Ads"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"Entertainment"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"Business"</span><span class="w"> 
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h3 id="response-200">Response 200</h3>
+
+<p>HEADERS</p>
+
+<p>Content-Type:application/json</p>
+
+<h2 id="adding-content">Adding content</h2>
+
+<blockquote>
+<p>Example Code - Adding Content (mp4 format &amp; m3u8 format)</p>
+</blockquote>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+<span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/addContent"</span><span class="p">,</span>
+<span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+<span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+<span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="s2">"{\"</span><span class="nx">content_provider_id\</span><span class="s2">": </span><span class="se">\"</span><span class="s2">akamai_internal</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">access_token</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">content_video_width</span><span class="se">\"</span><span class="s2">: 1024,</span><span class="se">\"</span><span class="s2">content_video_height</span><span class="se">\"</span><span class="s2">: 720,</span><span class="se">\"</span><span class="s2">content_bit_rate</span><span class="se">\"</span><span class="s2">: 4096,</span><span class="se">\"</span><span class="s2">content_categories</span><span class="se">\"</span><span class="s2">: [</span><span class="se">\"</span><span class="s2">Entertainment</span><span class="se">\"</span><span class="s2">],</span><span class="se">\"</span><span class="s2">content_tags</span><span class="se">\"</span><span class="s2">: [{\"</span><span class="nx">text\</span><span class="s2">": </span><span class="se">\"</span><span class="s2">stehd</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">weight</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">2</span><span class="se">\"</span><span class="s2">}],</span><span class="se">\"</span><span class="s2">thumb_width</span><span class="se">\"</span><span class="s2">: 1024,</span><span class="se">\"</span><span class="s2">thumb_height</span><span class="se">\"</span><span class="s2">: 720,</span><span class="se">\"</span><span class="s2">thumb_length</span><span class="se">\"</span><span class="s2">: 1280,</span><span class="se">\"</span><span class="s2">content_title</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Akamai-Edge 2016</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">content_description</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Where the world \'\s leading brands unlock the opportunities of the internet. You'll meet 2,000 Attendees from 30+ Countries and can network with innovators from brands big and small. Don't miss out on the most productive event for your online business.</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">content_duration</span><span class="se">\"</span><span class="s2">: 65,</span><span class="se">\"</span><span class="s2">content_unique_id</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">a-lL66tBZZA</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">streams</span><span class="se">\"</span><span class="s2">: [{\"</span><span class="nx">url\</span><span class="s2">": </span><span class="se">\"</span><span class="s2">http://tools.watch-now.co/a-lL66tBZZA/index.mp4</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">mp4</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">size</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">12324</span><span class="se">\"</span><span class="s2">}],</span><span class="se">\"</span><span class="s2">publication_timestamp</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">2016-08-09</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">thumb_url</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">http://tools.watch-now.co/a-lL66tBZZA/video.jpg</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+<span class="s2">"content-type: application/json"</span>
+<span class="p">),</span>
+<span class="p">));</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span> 
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span> 
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+<span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/addContent"</span><span class="p">,</span>
+<span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+<span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+<span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="s2">"{\"</span><span class="nx">content_provider_id\</span><span class="s2">": </span><span class="se">\"</span><span class="s2">akamai_internal</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">access_token</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">content_video_width</span><span class="se">\"</span><span class="s2">: 1024,</span><span class="se">\"</span><span class="s2">content_video_height</span><span class="se">\"</span><span class="s2">: 720,</span><span class="se">\"</span><span class="s2">content_bit_rate</span><span class="se">\"</span><span class="s2">: 4096,</span><span class="se">\"</span><span class="s2">content_categories</span><span class="se">\"</span><span class="s2">: [</span><span class="se">\"</span><span class="s2">Entertainment</span><span class="se">\"</span><span class="s2">],</span><span class="se">\"</span><span class="s2">content_tags</span><span class="se">\"</span><span class="s2">: [{\"</span><span class="nx">text\</span><span class="s2">": </span><span class="se">\"</span><span class="s2">stehd</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">weight</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">2</span><span class="se">\"</span><span class="s2">}],</span><span class="se">\"</span><span class="s2">thumb_width</span><span class="se">\"</span><span class="s2">: 1024,</span><span class="se">\"</span><span class="s2">thumb_height</span><span class="se">\"</span><span class="s2">: 720,</span><span class="se">\"</span><span class="s2">thumb_length</span><span class="se">\"</span><span class="s2">: 1280,</span><span class="se">\"</span><span class="s2">content_title</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Akamai-Edge 2016</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">content_description</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Where the world\'s leading brands unlock the opportunities of the internet. You'll meet 2,000 Attendees from 30+ Countries and can network with innovators from brands big and small. Don't miss out on the most productive event for your online business.</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">content_duration</span><span class="se">\"</span><span class="s2">: 65,</span><span class="se">\"</span><span class="s2">content_unique_id</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">a-lL66tBZZA</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">streams</span><span class="se">\"</span><span class="s2">: [{\"</span><span class="nx">url\</span><span class="s2">": </span><span class="se">\"</span><span class="s2">http://tools.watch-now.co/a-lL66tBZZA/index.m3u8</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">type</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">m3u8</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">size</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">12324</span><span class="se">\"</span><span class="s2">}],</span><span class="se">\"</span><span class="s2">publication_timestamp</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">2016-08-09</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">thumb_url</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">http://tools.watch-now.co/a-lL66tBZZA/video.jpg</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+<span class="s2">"content-type: application/json"</span>
+<span class="p">),</span>
+<span class="p">));</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span> 
+</code></pre>
+<pre class="highlight shell"><code>curl -X POST -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{"content_provider_id": "akamai_internal",
+"access_token": "B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE",
+"content_video_width": 1024,
+"content_video_height": 720,
+"content_bit_rate": 4096,
+"content_categories": [
+"Entertainment"
+],
+"content_tags": [{
+"text": "stehd",
+"weight": "2"
+}],
+"thumb_width": 1024,
+"thumb_height": 720,
+"thumb_length": 1280,
+"content_title": "Akamai-Edge 2016",
+"content_description": "Where the worlds leading brands unlock the opportunities of the internet. You'</span>ll meet 2,000 Attendees from 30+ Countries and can network with innovators from brands big and small. Don<span class="s1">'t miss out on the most productive event for your online business.",
+"content_duration": 65,
+"content_unique_id": "a-lL66tBZZA",
+"streams": [{
+"url": "http://tools.watch-now.co/a-lL66tBZZA/index.m3u8",
+"type": "m3u8",
+"size": "12324"
+}],
+"publication_timestamp": "2016-08-09",
+"thumb_url": "http://tools.watch-now.co/a-lL66tBZZA/video.jpg"}'</span> <span class="s2">"https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/addContent"</span>
+</code></pre>
+
+<p>This section will explain how to add content to the PCD platform. Currently, PCD enables you to submit video information using two formats - mp4 and m3u8 (HLS). You can add as many variants of the video as you like for a particular video.</p>
+
+<p>Note: Future versions of PCD will support other video formats (for example, dash and flv) using the streams field.</p>
+
+<p>To add content, use the following command:</p>
+
+<p><code> POST/ingest/v1/addContent </code></p>
+
+<p>To add an mp4 variant, add a JSON object to the streams array using the following format:</p>
+
+<p><code>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;url&quot;:&quot;mp4 url&quot;, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;size&quot;:&quot;length of mp4 in bytes&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;type&quot;:&quot;mp4&quot;<br>
+}
+</code></p>
+
+<p>To add an m3u8 variant, add a JSON object to the streams array using the following format:</p>
+
+<p><code> 
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;preferred_stream&quot;: &quot;bitrate to choose from the m3u8 file&quot; , <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;url&quot;:&quot;m3u8 url&quot;, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;size&quot;:&quot;length of file in bytes&quot;, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;type&quot;:&quot;m3u8&quot;<br>
+} 
+</code></p>
+
+<p>URI Parameters: content_provider_id,access_token</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>access_token</td>
+<td>true</td>
+<td>Access token associated with each provider</td>
+</tr>
+<tr>
+<td>content_provider_id</td>
+<td>true</td>
+<td>ID associated with each provider</td>
+</tr>
+<tr>
+<td>content_video_width</td>
+<td>true</td>
+<td>integer - width in pixels</td>
+</tr>
+<tr>
+<td>content_video_height</td>
+<td>true</td>
+<td>integer - height in pixels</td>
+</tr>
+<tr>
+<td>content_bit_rate</td>
+<td>true</td>
+<td>integer - bits per second</td>
+</tr>
+<tr>
+<td>content_categories</td>
+<td>true</td>
+<td>Content category</td>
+</tr>
+<tr>
+<td>content_tags</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>thumb_width</td>
+<td>true</td>
+<td>thumbnail width</td>
+</tr>
+<tr>
+<td>thumb_height</td>
+<td>true</td>
+<td>thumbnail height</td>
+</tr>
+<tr>
+<td>thumb_length</td>
+<td>true</td>
+<td>thumbnail length in bytes</td>
+</tr>
+<tr>
+<td>content_title</td>
+<td>true</td>
+<td>Title associated with the content</td>
+</tr>
+<tr>
+<td>content_description</td>
+<td>true</td>
+<td>description of the content</td>
+</tr>
+<tr>
+<td>content_duration</td>
+<td>true</td>
+<td>thumbnail length in bytes</td>
+</tr>
+<tr>
+<td>content_unique_id</td>
+<td>true</td>
+<td>Unique id of the content as determined by the provider</td>
+</tr>
+<tr>
+<td>streams</td>
+<td>true</td>
+<td>Format of objects (mp4 or m3u8)</td>
+</tr>
+<tr>
+<td>publication_timestamp</td>
+<td>true</td>
+<td>Published date of the content</td>
+</tr>
+<tr>
+<td>thumb_url</td>
+<td>true</td>
+<td>HTTP URL associated with the thumbnail</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-codes">RETURN CODES</h3>
+
+<p>The following table provides a list of possible return codes:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Status</th>
+<th>Error Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success Success.</td>
+<td>Request completed.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Does not conform to spec</td>
+<td>Something in the request does not conform to specification; the request cannot continue.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Missing data</td>
+<td>The request JSON is missing essential data to complete the request.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Access denied</td>
+<td>The access token validation failed.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Add not permitted</td>
+<td>The access token cannot add content.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Content category not permitted</td>
+<td>The content category is not supported by the PCD application.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>No variants of content provided</td>
+<td>No mp4 or m3u8 variants of the content were provided.</td>
+</tr>
+<tr>
+<td>422</td>
+<td>Duplicate</td>
+<td>The provider attempted to add a piece of content with a unique ID that already resides in the database.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Unknown</td>
+<td>An unknown error occurred while processing the request.</td>
+</tr>
+</tbody></table>
+
+<h3 id="request">Request</h3>
+
+<p>Headers</p>
+
+<p>Content-Type: application/json</p>
+
+<p><code>
+Body<br>
+{<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;content_provider_id&quot;: &quot;the id of the content provider&quot;,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;access_token&quot;: &quot;access token as provisioned by the MNO portal&quot;,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;content_video_width&quot;: integer - width in pixels,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;content_video_height&quot;: integer - height in pixels,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;content_bit_rate&quot;: integer - bits per second,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;content_categories&quot;: [<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;&quot;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ],<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;content_description&quot;: &quot;string - textual long form description of the content&quot;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;content_duration&quot;: integer - seconds,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;content_unique_id&quot;: string - Unique id of the content as determined by the provider,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;content_tags&quot;: [<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;text&quot;: &quot;string - Tags associated with the Content&quot;,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;weight&quot;: &quot;string - Weight associated with the Tag&quot;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;content_title&quot;: &quot;string - Title associated with the content&quot;,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;streams&quot;: [<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>objects of this format</em><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;url&quot;: &quot;string - mp4 url of content&quot;,<br> 
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;type&quot;: &quot;mp4&quot;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;size&quot;: &quot;string - length of mp4 in bytes&quot;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>AND/OR objects of this format</em><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;preferred_stream&quot;: &quot;bitrate to choose from the m3u8 file&quot;,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;url&quot;: &quot;string = url of m3u8 file&quot;,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;type&quot;: &quot;m3u8&quot;,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;size&quot;: &quot;length of stream in bytes&quot;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;publication_timestamp&quot;: &quot;string &quot;YYYY-MM-DD HH:MM:SS&quot;,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;thumb_width&quot;: integeger - thumbnail width,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;thumb_height&quot;: integer - thumbnail height,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;thumb_length&quot;: integer - thumbnail length in bytes,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;thumb_url&quot;: &quot;string - HTTP URL associated with the thumbnail&quot; ,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;ad_url&quot;: &quot;OPTIONAL: string - HTTP URL of ad to play with content&quot;,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;sdk_metadata_passthrough&quot;: &quot;OPTIONAL: string- any metadata a customer wants to pass directly through the sdk for later use (e.g. a json, xml,text as a string) &quot;,<br>
+}
+</code></p>
+
+<h3 id="response-200">Response 200</h3>
+
+<p>Headers</p>
+
+<p>Content-Type: application/json</p>
+
+<p><code>Body<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;return_code&quot;: &quot;Success&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;content_id&quot;: &quot;string - id of content&quot;<br>
+}<br>
+</code></p>
+
+<h3 id="response-400">Response 400</h3>
+
+<p>Headers</p>
+
+<p>Content-Type: application/json</p>
+
+<p><code> Body<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;return_code&quot;: &quot;a return code here&quot;<br>
+}
+</code></p>
+
+<h3 id="response-500">Response 500</h3>
+
+<p>Headers</p>
+
+<p>Content-Type: application/json</p>
+
+<p><code>Body<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;return_code&quot;: &quot;Unknown&quot; <br>
+}
+</code></p>
+
+<h3 id="result">Result:</h3>
+
+<blockquote>
+<p>Response body</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="nt">"content_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">346708</span><span class="p">,</span><span class="w">
+</span><span class="nt">"return_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="response-200">Response 200</h3>
+
+<p>HEADERS</p>
+
+<p>Content-Type:application/json</p>
+
+<h2 id="updating-content-metatdata-by-id">Updating content metatdata by ID</h2>
+
+<blockquote>
+<p>Example Code - Updating Content Metadata By ID</p>
+</blockquote>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+<span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/updateContentById"</span><span class="p">,</span>
+<span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+<span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+<span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="s2">"{\"</span><span class="nx">content_provider_id\</span><span class="s2">": </span><span class="se">\"</span><span class="s2">akamai_internal</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">content_id</span><span class="se">\"</span><span class="s2">:346708,</span><span class="se">\"</span><span class="s2">access_token</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">content_title</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Akamai-Edge 2016</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span>
+<span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+<span class="s2">"content-type: application/json"</span>
+<span class="p">)</span>
+<span class="p">));</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X POST -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{"content_provider_id": "akamai_internal",
+"content_id":346708,
+"access_token": "B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE",
+"content_title": "Akamai-Edge 2016"}'</span> <span class="s2">"https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/updateContentById"</span>
+</code></pre>
+
+<p>This action enables you to update a single content entry using its unique ID.</p>
+
+<p>To update content by ID, use the following command:</p>
+
+<p><code> POST/ingest/v1/updateContentById </code></p>
+
+<p>URI Parameters: content_provider_id,access_token,content_id</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>access_token</td>
+<td>true</td>
+<td>Access token associated with each provider</td>
+</tr>
+<tr>
+<td>content_provider_id</td>
+<td>true</td>
+<td>ID associated with each provider</td>
+</tr>
+<tr>
+<td>content_id</td>
+<td>true</td>
+<td>ID of the content created by the provider</td>
+</tr>
+<tr>
+<td>content_video_width</td>
+<td>true</td>
+<td>integer - width in pixels</td>
+</tr>
+<tr>
+<td>content_video_height</td>
+<td>true</td>
+<td>integer - height in pixels</td>
+</tr>
+<tr>
+<td>content_bit_rate</td>
+<td>true</td>
+<td>integer â€“ bits per second</td>
+</tr>
+<tr>
+<td>content_categories</td>
+<td>true</td>
+<td>Content category</td>
+</tr>
+<tr>
+<td>content_tags</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>thumb_width</td>
+<td>true</td>
+<td>thumbnail width</td>
+</tr>
+<tr>
+<td>thumb_height</td>
+<td>true</td>
+<td>thumbnail height</td>
+</tr>
+<tr>
+<td>thumb_length</td>
+<td>true</td>
+<td>thumbnail length in bytes</td>
+</tr>
+<tr>
+<td>content_title</td>
+<td>true</td>
+<td>Title associated with the content</td>
+</tr>
+<tr>
+<td>content_description</td>
+<td>true</td>
+<td>description of the content</td>
+</tr>
+<tr>
+<td>content_duration</td>
+<td>true</td>
+<td>thumbnail length in bytes</td>
+</tr>
+<tr>
+<td>content_unique_id</td>
+<td>true</td>
+<td>Unique id of the content as determined by the provider</td>
+</tr>
+<tr>
+<td>streams</td>
+<td>true</td>
+<td>Format of objects (mp4 or m3u8)</td>
+</tr>
+<tr>
+<td>publication_timestamp</td>
+<td>true</td>
+<td>Published date of the content</td>
+</tr>
+<tr>
+<td>thumb_url</td>
+<td>true</td>
+<td>HTTP URL associated with the thumbnail</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-codes">RETURN CODES</h3>
+
+<p>The following table provides a list of possible return codes:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Status</th>
+<th>Error Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success Success.</td>
+<td>Request completed.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Missing data</td>
+<td>The request JSON is missing essential data to complete the request.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Access denied</td>
+<td>The access token validation failed.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Bad content id</td>
+<td>The provided content ID is not associated with any content.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Update not permitted</td>
+<td>The provided access token does not have permission to update content.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Update unique id error</td>
+<td>Updating the content ID results in more than one entry with the same ID; IDs must be unique.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Content category not permitted</td>
+<td>You are attempting to update the content with an unsupported category.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Unknown</td>
+<td>An unknown error occurred while processing the request.</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-200">Request 200</h3>
+
+<p>Headers</p>
+
+<p>Content-Type: application/json</p>
+
+<p><code>
+Body<br>
+{<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;content_id&quot;: &quot;id of a content&quot;,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;content_provider_id&quot;: &quot;the id of the content provider&quot;,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;access_token&quot;: &quot;access token as provisioned by the MNO portal&quot;,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;content_video_width&quot;: integer - width in pixels,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;content_video_height&quot;: integer - height in pixels,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;content_bit_rate&quot;: integer - bits per second,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;content_categories&quot;: [<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;&quot;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ],<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;content_description&quot;: &quot;string - textual long form description of the content&quot;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;content_duration&quot;: integer - seconds,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;content_unique_id&quot;: string - Unique id of the content as determined by the provider,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;content_tags&quot;: [<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;text&quot;: &quot;string - Tags associated with the Content&quot;,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;weight&quot;: &quot;string - Weight associated with the Tag&quot;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;content_title&quot;: &quot;string - Title associated with the content&quot;,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;streams&quot;: [<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>objects of this format</em><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;url&quot;: &quot;string - mp4 url of content&quot;,<br> 
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;type&quot;: &quot;mp4&quot;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;size&quot;: &quot;string - length of mp4 in bytes&quot;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>AND/OR objects of this format</em><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;preferred_stream&quot;: &quot;bitrate to choose from the m3u8 file&quot;,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;url&quot;: &quot;string = url of m3u8 file&quot;,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;type&quot;: &quot;m3u8&quot;,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;size&quot;: &quot;length of stream in bytes&quot;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;publication_timestamp&quot;: &quot;string &quot;YYYY-MM-DD HH:MM:SS&quot;,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;thumb_width&quot;: integeger - thumbnail width,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;thumb_height&quot;: integer - thumbnail height,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;thumb_length&quot;: integer - thumbnail length in bytes,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;thumb_url&quot;: &quot;string - HTTP URL associated with the thumbnail&quot; ,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;ad_url&quot;: &quot;OPTIONAL: string - HTTP URL of ad to play with content&quot;,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;sdk_metadata_passthrough&quot;: &quot;OPTIONAL: string- any metadata a customer wants to pass directly through the sdk for later use (e.g. a json, xml,text as a string) &quot;,<br>
+</code></p>
+
+<h3 id="response-200">Response 200</h3>
+
+<p>Headers</p>
+
+<p>Content-Type: application/json</p>
+
+<p><code>
+Body<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;return_code&quot;: &quot;Success&quot;<br>
+}<br>
+</code></p>
+
+<h3 id="response-400">Response 400</h3>
+
+<p>Headers</p>
+
+<p>Content-Type: application/json</p>
+
+<p><code>
+Body<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;return_code&quot;: &quot;a return code here&quot;<br>
+}
+</code></p>
+
+<h3 id="response-500">Response 500</h3>
+
+<p>Headers</p>
+
+<p>Content-Type: application/json</p>
+
+<p><code>
+Body<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;return_code&quot;: &quot;Unknown&quot;<br>
+}<br>
+</code></p>
+
+<h3 id="result">Result:</h3>
+
+<blockquote>
+<p>Response body</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="nt">"return_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="response-200">Response 200</h3>
+
+<p>HEADERS</p>
+
+<p>Content-Type:application/json</p>
+
+<h2 id="purge-by-content-id">Purge by content ID</h2>
+
+<blockquote>
+<p>Example Code for Purging Content By ID:</p>
+</blockquote>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+<span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/requestPurgeById"</span><span class="p">,</span>
+<span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+<span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+<span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="s2">"{\"</span><span class="nx">content_provider_id\</span><span class="s2">": </span><span class="se">\"</span><span class="s2">akamai_internal</span><span class="se">\"</span><span class="s2">,
+</span><span class="se">\"</span><span class="s2">access_token</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE</span><span class="se">\"</span><span class="s2">,
+</span><span class="se">\"</span><span class="s2">content_id</span><span class="se">\"</span><span class="s2">:346708}"</span><span class="p">,</span>
+<span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+<span class="s2">"content-type: application/json"</span>
+<span class="p">)</span>
+<span class="p">));</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X POST -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{
+"content_provider_id": "akamai_internal",
+"access_token": "B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE",
+"content_id":346708
+}'</span> 
+<span class="s2">"https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/requestPurgeById"</span>
+</code></pre>
+
+<p>This action enables you to purge (remove) content from PCD using the content ID.</p>
+
+<p>Use the following command to purge content by ID:</p>
+
+<p><code>POST/ingest/v1/requestPurgeById</code></p>
+
+<p>URI Parameters: content_provider_id,access_token,content_id</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>access_token</td>
+<td>true</td>
+<td>Access token associated with each provider</td>
+</tr>
+<tr>
+<td>content_provider_id</td>
+<td>true</td>
+<td>ID associated with each provider</td>
+</tr>
+<tr>
+<td>content_id</td>
+<td>true</td>
+<td>ID of the content created by the provider</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-codes">RETURN CODES</h3>
+
+<p>The following table provides a list of possible return codes:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Status</th>
+<th>Error Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+<td>Success. Request completed.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Missing data</td>
+<td>The request JSON is missing essential data to complete the request.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Access denied</td>
+<td>The access token validation failed.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Bad content id</td>
+<td>The provided content ID is not associated with any content.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Purge not permitted</td>
+<td>The provided access token cannot purge content.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Unknown</td>
+<td>An unknown error occurred while processing the request.</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-get-content-ids">Request Get content ids</h3>
+
+<p>Headers</p>
+
+<p>Content-Type: application/json</p>
+
+<p><code>
+Body<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;content_id&quot;: &quot;the id of content&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;content_provider_id&quot;: &quot;the id of the content provider&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;access_token&quot;: &quot;access token as provisioned by the MNO portal&quot;<br>
+}
+</code></p>
+
+<h3 id="response-200">Response 200</h3>
+
+<p>Headers</p>
+
+<p>Content-Type: application/json</p>
+
+<p><code>
+Body<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;return_code&quot;: &quot;Success&quot;<br>
+}
+</code></p>
+
+<h3 id="response-400">Response 400</h3>
+
+<p>Headers</p>
+
+<p>Content-Type: application/json</p>
+
+<p><code>
+Body<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;return_code&quot;: &quot;a return code here&quot;<br>
+}
+</code></p>
+
+<h3 id="response-500">Response 500</h3>
+
+<p>Headers</p>
+
+<p>Content-Type: application/json</p>
+
+<p><code>
+Body<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;return_code&quot;: &quot;Unknown&quot;</br>
+}
+</code></p>
+
+<h3 id="result">Result:</h3>
+
+<h3 id="response-200">Response 200</h3>
+
+<p>HEADERS</p>
+
+<p>Content-Type:application/json</p>
+
+<blockquote>
+<p>Response body</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="nt">"return_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="getting-all-content-by-ids">Getting all content by IDs</h2>
+
+<blockquote>
+<p>Example Code for Getting All Content By IDs:</p>
+</blockquote>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+<span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/getContentByIds"</span><span class="p">,</span>
+<span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+<span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+<span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="s2">"{\"</span><span class="nx">content_provider_id\</span><span class="s2">": </span><span class="se">\"</span><span class="s2">akamai_internal</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">access_token</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span>
+<span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+<span class="s2">"content-type: application/json"</span>
+<span class="p">)</span>
+<span class="p">));</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X POST -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{
+"content_provider_id": "akamai_internal",
+"access_token": "B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE",
+"content_id":346708
+}'</span> <span class="s2">"https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/getContentByIds"</span>
+</code></pre>
+
+<p>This action returns all associated content IDs.</p>
+
+<p>To view all content IDs, use the following command:</p>
+
+<p><code> POST/ingest/v1/getContentIds </code></p>
+
+<p>URI Parameters: content_provider_id,access_token</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>access_token</td>
+<td>true</td>
+<td>Access token associated with each provider</td>
+</tr>
+<tr>
+<td>content_provider_id</td>
+<td>true</td>
+<td>ID associated with each provider</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-codes">RETURN CODES</h3>
+
+<p>The following table provides a list of possible return codes:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Status</th>
+<th>Error Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Active</td>
+<td>Success. Request completed. The content is active.</td>
+</tr>
+<tr>
+<td>200</td>
+<td>Inactive</td>
+<td>Success. Request completed. The content is inactive.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Missing data</td>
+<td>The request JSON is missing essential data to complete the request.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Access denied</td>
+<td>The access token validation failed.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Bad content id</td>
+<td>The provided content ID is not associated with any content.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Unknown</td>
+<td>An unknown error occurred while processing the request.</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-get-content-ids">Request Get content ids</h3>
+
+<p>Headers</p>
+
+<p>Content-Type: application/json</p>
+
+<p><code>
+Body<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;content_provider_id&quot;: &quot;the id of the content provider&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;access_token&quot;: &quot;access token as provisioned by the MNO portal&quot;<br>
+}
+</code></p>
+
+<h3 id="response-200">Response 200</h3>
+
+<p>Headers</p>
+
+<p>Content-Type: application/json</p>
+
+<p><code>
+Body<br>
+[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;content_id&quot;: &quot;content_id&quot;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+]
+</code></p>
+
+<h3 id="response-400">Response 400</h3>
+
+<p>Headers</p>
+
+<p>Content-Type: application/json</p>
+
+<p><code>
+Body<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;return_code&quot;: &quot;a return code here&quot;<br>
+} 
+</code></p>
+
+<h3 id="response-500">Response 500</h3>
+
+<p>Headers</p>
+
+<p>Content-Type: application/json</p>
+
+<p><code>
+Body<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;return_code&quot;: &quot;Unknown&quot;<br>
+}
+</code></p>
+
+<h3 id="result">Result:</h3>
+
+<blockquote>
+<p>Response body</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nt">"content_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">346708</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w"> 
+</span></code></pre>
+
+<h3 id="response-200">Response 200</h3>
+
+<p>Headers</p>
+
+<p>Content-Type:application/json</p>
+
+<h2 id="getting-content-metadata-by-id">Getting content metadata by ID</h2>
+
+<blockquote>
+<p>Example code for Getting Content Metadata By IDs:</p>
+</blockquote>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+<span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/getContentById"</span><span class="p">,</span>
+<span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+<span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+<span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="s2">"{\"</span><span class="nx">content_provider_id\</span><span class="s2">": </span><span class="se">\"</span><span class="s2">akamai_internal</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">access_token</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">content_id</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">346708</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span>
+<span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+<span class="s2">"content-type: application/json"</span>
+<span class="p">)</span>
+<span class="p">));</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X POST -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{
+"content_provider_id": "akamai_internal",
+"access_token": "B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE",
+"content_id":346708
+}'</span> <span class="s2">"https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/getContentById"</span>
+</code></pre>
+
+<p>This call enables you to retrieve meta-information of a particular content using the content ID.</p>
+
+<p>Use the following command to view particular content by content ID:</p>
+
+<p><code> POST/ingest/v1/getContentById </code></p>
+
+<p>URI Parameters:content_provider_id,access_token,content_id</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>access_token</td>
+<td>true</td>
+<td>Access token associated with each provider</td>
+</tr>
+<tr>
+<td>content_provider_id</td>
+<td>true</td>
+<td>ID associated with each provider</td>
+</tr>
+<tr>
+<td>content_id</td>
+<td>true</td>
+<td>ID of the content created by the provider</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-codes">RETURN CODES</h3>
+
+<p>The following table provides a list of possible return codes:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Status</th>
+<th>Error Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Active</td>
+<td>Success. Request completed. The content is active.</td>
+</tr>
+<tr>
+<td>200</td>
+<td>Inactive</td>
+<td>Success. Request completed. The content is inactive.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Missing data</td>
+<td>The request JSON is missing essential data to complete the request.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Access denied</td>
+<td>The access token validation failed.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Bad content id</td>
+<td>The provided content ID is not associated with any content.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Unknown</td>
+<td>An unknown error occurred while processing the request.uly</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-get-content-by-id">Request Get content by id</h3>
+
+<p>Headers</p>
+
+<p>Content-Type: application/json</p>
+
+<p><code>
+Body<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;content_id&quot;: &quot;the id of content&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;content_provider_id&quot;: &quot;the id of the content provider&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;access_token&quot;: &quot;access token as provisioned by the MNO portal&quot;<br>
+}
+</code></p>
+
+<h3 id="response-200">Response 200</h3>
+
+<p>Headers</p>
+
+<p>Content-Type: application/json</p>
+
+<p><code>
+Body<br>
+{
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;content_id&quot;: &quot;id of a content&quot;,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;content_provider_id&quot;: &quot;the id of the content provider&quot;,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;access_token&quot;: &quot;access token as provisioned by the MNO portal&quot;,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;content_video_width&quot;: integer - width in pixels,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;content_video_height&quot;: integer - height in pixels,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;content_bit_rate&quot;: integer - bits per second,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;content_categories&quot;: [<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;&quot;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ],<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;content_description&quot;: &quot;string - textual long form description of the content&quot;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;content_duration&quot;: integer - seconds,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;content_unique_id&quot;: string - Unique id of the content as determined by the provider,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;content_tags&quot;: [<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;text&quot;: &quot;string - Tags associated with the Content&quot;,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;weight&quot;: &quot;string - Weight associated with the Tag&quot;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;content_title&quot;: &quot;string - Title associated with the content&quot;,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;streams&quot;: [<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>objects of this format</em><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;url&quot;: &quot;string - mp4 url of content&quot;,<br> 
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;type&quot;: &quot;mp4&quot;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;size&quot;: &quot;string - length of mp4 in bytes&quot;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>AND/OR objects of this format</em><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;preferred_stream&quot;: &quot;bitrate to choose from the m3u8 file&quot;,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;url&quot;: &quot;string = url of m3u8 file&quot;,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;type&quot;: &quot;m3u8&quot;,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;size&quot;: &quot;length of stream in bytes&quot;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;publication_timestamp&quot;: &quot;string &quot;YYYY-MM-DD HH:MM:SS&quot;,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;thumb_width&quot;: integeger - thumbnail width,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;thumb_height&quot;: integer - thumbnail height,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;thumb_length&quot;: integer - thumbnail length in bytes,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;thumb_url&quot;: &quot;string - HTTP URL associated with the thumbnail&quot; ,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;ad_url&quot;: &quot;OPTIONAL: string - HTTP URL of ad to play with content&quot;,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&quot;sdk_metadata_passthrough&quot;: &quot;OPTIONAL: string- any metadata a customer wants to pass directly through the sdk for later use (e.g. a json, xml,text as a string) &quot;,<br>
+</code></p>
+
+<h3 id="response-400">Response 400</h3>
+
+<p>Headers</p>
+
+<p>Content-Type: application/json</p>
+
+<p><code>
+Body<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;return_code&quot;: &quot;a return code here&quot;<br>
+}
+</code></p>
+
+<h3 id="response-500">Response 500</h3>
+
+<p>Headers</p>
+
+<p>Content-Type: application/json</p>
+
+<p><code>
+Body<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;return_code&quot;: &quot;Unknown&quot;<br>
+}
+</code></p>
+
+<h3 id="result">Result:</h3>
+
+<blockquote>
+<p>Response body</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nt">"content_length"</span><span class="p">:</span><span class="w"> </span><span class="mi">12324</span><span class="p">,</span><span class="w">
+</span><span class="nt">"content_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Where the worlds leading brands unlock the opportunities of the internet.
+You'll meet 2,000 Attendees from 30+ Countries and can network with innovators from brands big and small.
+Don't miss out on the most productive event for your online business."</span><span class="p">,</span><span class="w">
+</span><span class="nt">"content_provider_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"akamai_internal"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"content_video_height"</span><span class="p">:</span><span class="w"> </span><span class="s2">"720"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"thumb_height"</span><span class="p">:</span><span class="w"> </span><span class="s2">"720"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"content_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Akamai Edge 2016"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"content_expiration"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+</span><span class="nt">"preselected"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+</span><span class="nt">"persistToExpiration"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+</span><span class="nt">"publication_timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-09 00:00:00"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"content_tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stehd"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"weight"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">],</span><span class="w">
+</span><span class="nt">"thumb_width"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1024"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"long_lived"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+</span><span class="nt">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"video/m3u8"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"content_categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="s2">"Entertainment"</span><span class="w">
+</span><span class="p">],</span><span class="w">
+</span><span class="nt">"thumb_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://tools.watch-now.co/a-lL66tBZZA/video.jpg"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"content_video_width"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1024"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"content_unique_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a-lL66tBZZA"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"content_bit_rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">4096</span><span class="p">,</span><span class="w">
+</span><span class="nt">"thumb_length"</span><span class="p">:</span><span class="w"> </span><span class="mi">1280</span><span class="p">,</span><span class="w">
+</span><span class="nt">"streams"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://tools.watch-now.co/a-lL66tBZZA/index.m3u8"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m3u8"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"lowcost_map"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+</span><span class="nt">"use"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+</span><span class="nt">"host"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12324"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">],</span><span class="w">
+</span><span class="nt">"content_duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">65</span><span class="p">,</span><span class="w">
+</span><span class="nt">"ad_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="response-200">Response 200</h3>
+
+<p>Headers</p>
+
+<p>Content-Type:application/json</p>
+
+<h2 id="getting-content-status">Getting content status</h2>
+
+<blockquote>
+<p>Example code for Getting Content Status:</p>
+</blockquote>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+<span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/getActivityStatusById"</span><span class="p">,</span>
+<span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+<span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+<span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="s2">"{\"</span><span class="nx">content_provider_id\</span><span class="s2">": </span><span class="se">\"</span><span class="s2">akamai_internal</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">access_token</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">content_id</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">346708</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span>
+<span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+<span class="s2">"content-type: application/json"</span>
+<span class="p">)</span>
+<span class="p">));</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X POST -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{
+"content_provider_id": "akamai_internal",
+"access_token": "B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE",
+"content_id":346708
+}'</span> <span class="s2">"https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/getActivityStatusById"</span>
+</code></pre>
+
+<p>The status attribute associated with all the content that is used by the PCD application, enables you to activate and deactivate content without having to add and delete content from the PCD application. You can both obtain the content status and activate the content by ID.</p>
+
+<p>This call enables you to determine the active state of content using the ID.</p>
+
+<p>To get the activity status of content using a specific ID, use the following command:</p>
+
+<p><code> POST/ingest/v1/getActivityStatusById </code></p>
+
+<p>URI Parameters: content_provider_id,access_token,content_id</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>access_token</td>
+<td>true</td>
+<td>Access token associated with each provider</td>
+</tr>
+<tr>
+<td>content_provider_id</td>
+<td>true</td>
+<td>ID associated with each provider</td>
+</tr>
+<tr>
+<td>content_id</td>
+<td>true</td>
+<td>ID of the content created by the provider</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-codes">RETURN CODES</h3>
+
+<p>The following table provides a list of possible return codes:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Status</th>
+<th>Error Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Active</td>
+<td>Success. Request completed. The content is active.</td>
+</tr>
+<tr>
+<td>200</td>
+<td>Inactive</td>
+<td>Success. Request completed. The content is inactive.</td>
+</tr>
+<tr>
+<td>200</td>
+<td>Purged</td>
+<td>Success. The content is purged from the PCD application.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Missing data</td>
+<td>The request JSON is missing essential data to complete the request.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Access denied</td>
+<td>The access token validation failed.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Bad content id</td>
+<td>The provided content ID is not associated with any content.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Unknown</td>
+<td>An unknown error occurred while processing the request.</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-get-status-of-content">Request Get status of content</h3>
+
+<p>Headers</p>
+
+<p>Content-Type: application/json</p>
+
+<p><code>
+Body<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;content_id&quot;: &quot;the id of content&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;content_provider_id&quot;: &quot;the id of the content provider&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;access_token&quot;: &quot;access token as provisioned by the MNO portal&quot;<br>
+}
+</code></p>
+
+<h3 id="response-200">Response 200</h3>
+
+<p>Headers</p>
+
+<p>Content-Type: application/json</p>
+
+<p><code>
+Body<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;return_code&quot;: &quot;a return code here&quot;<br>
+}
+</code></p>
+
+<h3 id="response-400">Response 400</h3>
+
+<p>Headers</p>
+
+<p>Content-Type: application/json</p>
+
+<p><code>
+Body<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;return_code&quot;: &quot;a return code here&quot;<br>
+}
+</code></p>
+
+<h3 id="response-500">Response 500</h3>
+
+<p>Headers</p>
+
+<p>Content-Type: application/json</p>
+
+<p><code>
+Body<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;return_code&quot;: &quot;Unknown&quot;<br>
+}
+</code></p>
+
+<h3 id="result">Result:</h3>
+
+<blockquote>
+<p>Response body </p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="nt">"return_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Active"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="response200">Response200</h3>
+
+<p>HEADERS</p>
+
+<p>Content-Type:application/json</p>
+
+<h2 id="activating-content">Activating content</h2>
+
+<blockquote>
+<p>Example code for Activating Content:</p>
+</blockquote>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+<span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/setContentActiveById"</span><span class="p">,</span>
+<span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+<span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+<span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="s2">"{\"</span><span class="nx">content_provider_id\</span><span class="s2">": </span><span class="se">\"</span><span class="s2">akamai_internal</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">access_token</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">content_id</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">346708</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span>
+<span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+<span class="s2">"content-type: application/json"</span>
+<span class="p">)</span>
+<span class="p">));</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X POST -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{
+"content_provider_id": "akamai_internal",
+"access_token": "B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE",
+"content_id":346708
+}'</span> <span class="s2">"https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/setContentActiveById"</span>
+</code></pre>
+
+<p>This call enables you to set a given content status as ACTIVE.</p>
+
+<p>Using the following command, you can set a given content status to ACTIVE:</p>
+
+<p><code> POST/ingest/v1/setContentActiveById </code></p>
+
+<p>URI Parameters: content_provider_id,access_token,content_id</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>access_token</td>
+<td>true</td>
+<td>Access token associated with each provider</td>
+</tr>
+<tr>
+<td>content_provider_id</td>
+<td>true</td>
+<td>ID associated with each provider</td>
+</tr>
+<tr>
+<td>content_id</td>
+<td>true</td>
+<td>ID of the content created by the provider</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-codes">RETURN CODES</h3>
+
+<p>The following table provides a list of possible return codes:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Status</th>
+<th>Error Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Active</td>
+<td>Success. Request completed.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Missing data</td>
+<td>The request JSON is missing essential data to complete the request.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Access denied</td>
+<td>The access token validation failed.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Bad content id</td>
+<td>The content ID is not associated with any content.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Already active</td>
+<td>The content is already marked as active.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Content is purged from PVOC</td>
+<td>The content does not reside on the PCD application.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Unknown</td>
+<td>An unknown error occurred while processing the request.</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-set-content-as-active">Request Set content as Active</h3>
+
+<p>Headers</p>
+
+<p>Content-Type: application/json</p>
+
+<p><code>
+Body<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;content_id&quot;: &quot;the id of content&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;content_provider_id&quot;: &quot;the id of the content provider&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;access_token&quot;: &quot;access token as provisioned by the MNO portal&quot;<br>
+}
+</code></p>
+
+<h3 id="response-200">Response 200</h3>
+
+<p>Headers</p>
+
+<p>Content-Type: application/json</p>
+
+<p><code>
+Body<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;return_code&quot;: &quot;a return code here&quot;<br>
+}
+</code></p>
+
+<h3 id="response-400">Response 400</h3>
+
+<p>Headers</p>
+
+<p>Content-Type: application/json</p>
+
+<p><code>
+Body<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;return_code&quot;: &quot;a return code here&quot;<br>
+}
+</code></p>
+
+<h3 id="response-500">Response 500</h3>
+
+<p>Headers</p>
+
+<p>Content-Type: application/json</p>
+
+<p><code>
+Body<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;return_code&quot;: &quot;Unknown&quot;<br>
+}
+</code></p>
+
+<h3 id="result">Result:</h3>
+
+<blockquote>
+<p>Response body</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="nt">"return_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="response-200">Response 200</h3>
+
+<p>HEADERS</p>
+
+<p>Content-Type:application/json</p>
+
+<h2 id="setting-content-as-inactive">Setting content as inactive</h2>
+
+<blockquote>
+<p>Example Code Setting Content As Inactive:</p>
+</blockquote>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+<span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/setContentInactiveById"</span><span class="p">,</span>
+<span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+<span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+<span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="s2">"{\"</span><span class="nx">content_provider_id\</span><span class="s2">": </span><span class="se">\"</span><span class="s2">akamai_internal</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">access_token</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">content_id</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">346708</span><span class="se">\"</span><span class="s2">,}"</span><span class="p">,</span>
+<span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+<span class="s2">"content-type: application/json"</span>
+<span class="p">)</span>
+<span class="p">));</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X POST -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{
+"content_provider_id": "akamai_internal",
+"access_token": "B5672A98CB9A989755C5D419296237F5E00F9D759F4533B5E6E2541C88798ABE",
+"content_id":346708
+}'</span> <span class="s2">"https://ingest-sdktrial2.pvoc-anaina.com/ingest/v1/setContentInactiveById"</span>
+</code></pre>
+
+<p>This call enables you to set a specific content status as INACTIVE.</p>
+
+<p>Using the following command, set a given content status to INACTIVE:</p>
+
+<p><code> POST/ingest/v1/setContentInactiveById </code></p>
+
+<p>URI Parameters: content_provider_id,access_token,content_id</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>access_token</td>
+<td>true</td>
+<td>Access token associated with each provider</td>
+</tr>
+<tr>
+<td>content_provider_id</td>
+<td>true</td>
+<td>ID associated with each provider</td>
+</tr>
+<tr>
+<td>content_id</td>
+<td>true</td>
+<td>ID of the content created by the provider</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-codes">RETURN CODES</h3>
+
+<p>The following table provides a list of possible return codes:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Status</th>
+<th>Error Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Active</td>
+<td>Success. Request completed.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Missing data</td>
+<td>The request JSON is missing essential data to complete the request.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Access denied</td>
+<td>The access token validation failed.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Bad content id</td>
+<td>Content ID is not associated with any content.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Aready inactive</td>
+<td>The content is already marked as active.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Content is purged from PVOC</td>
+<td>The content does not reside on the PCD application.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Unknown</td>
+<td>An unknown error occurred while processing the request.</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-set-content-as-inactive">Request Set content as Inactive</h3>
+
+<p>Headers</p>
+
+<p>Content-Type: application/json</p>
+
+<p><code>
+Body<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;content_id&quot;: &quot;the id of content&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;content_provider_id&quot;: &quot;the id of the content provider&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;access_token&quot;: &quot;access token as provisioned by the MNO portal&quot;<br>
+}
+</code></p>
+
+<h3 id="response-200">Response 200</h3>
+
+<p>Headers</p>
+
+<p>Content-Type: application/json</p>
+
+<p><code>
+Body<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;return_code&quot;: &quot;a return code here&quot;<br>
+}
+</code></p>
+
+<h3 id="response-500">Response 500</h3>
+
+<p>Headers</p>
+
+<p>Content-Type: application/json</p>
+
+<p><code>
+Body<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;return_code&quot;: &quot;Unknown&quot;<br>
+}
+</code></p>
+
+<h3 id="result">Result:</h3>
+
+<blockquote>
+<p>Response body</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="nt">"return_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="response-200">Response 200</h3>
+
+<p>HEADERS</p>
+
+<p>Content-Type:application/json</p>
+
+<h1 id="test-apis">Test APIs</h1>
+
+<p>A tool to test the APIs for Getting category list, Adding content, Updating content metadata by ID, Purge by content ID, Getting all content IDs, Getting content metadata by IDs, Getting content status, Activating content, Setting content as active. </p>
+
+<p><a href="api-tool/tool.html" target="blank" class="api-tool">API Test Tool</a></p>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">cURL</a>
+                <a href="#" data-language-name="php">PHP</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
