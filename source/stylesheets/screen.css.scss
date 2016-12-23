@@ -66,7 +66,7 @@ html, body {
   left: 0;
   bottom: 0;
   width: $nav-width;
-  background-color: $nav-bg;
+  background: #f9f9f9;
   font-size: 13px;
   font-weight: bold;
 
@@ -82,30 +82,30 @@ html, body {
   // This is the logo at the top of the ToC
   &>img {
     display: block;
-    max-width: 100%;
+    max-width: 60%;
   }
 
   &>.search {
     position: relative;
 
     input {
-      background: $nav-bg;
+      background: #efefef;
       border-width: 0 0 1px 0;
-      border-color: $search-box-border-color;
+      border-color: #efefef;
       padding: 6px 0 6px 20px;
       box-sizing: border-box;
       margin: $nav-v-padding $nav-padding;
       width: $nav-width - 30;
       outline: none;
-      color: $nav-text;
+      color: #000;
       border-radius: 0; /* ios has a default border radius */
     }
 
     &:before {
       position: absolute;
       top: 17px;
-      left: $nav-padding;
-      color: $nav-text;
+      left: 18px;
+      color: #c7c7c7;
       @extend %icon-search;
     }
   }
@@ -165,7 +165,7 @@ html, body {
   }
 
   li {
-    color: $nav-text;
+    color: #555;
     transition-property: background;
     transition-timing-function: linear;
     transition-duration: 230ms;
@@ -173,8 +173,7 @@ html, body {
 
   // This is the currently selected ToC entry
   .tocify-focus {
-    box-shadow: 0px 1px 0px $nav-active-shadow;
-    background-color: $nav-active-bg;
+    background-color: #21a5d2;
     color: $nav-active-text;
   }
 
@@ -182,7 +181,8 @@ html, body {
   // in the table of contents.
   .tocify-subheader {
     display: none; // tocify will override this when needed
-    background-color: $nav-subitem-bg;
+    background: none !important;
+    background-color: #eaeaea;
     font-weight: 500;
     .tocify-item>a {
       padding-left: $nav-padding + $nav-indent;
@@ -261,7 +261,7 @@ html, body {
   margin-left: $nav-width;
   position: relative;
   z-index: 10;
-  background-color: $main-bg;
+  background-color: #fff;
   min-height: 100%;
 
   padding-bottom: 1px; // prevent margin overflow
@@ -363,6 +363,10 @@ html, body {
     margin-top: 2em;
     border-top: 1px solid #ddd;
     background-image: linear-gradient(to bottom, #fff, #f9f9f9);
+    background: #21a5d2;
+    color: #fff;
+    text-shadow: none;
+    border: none;
   }
 
   h1:first-child, div:first-child + h1 {
