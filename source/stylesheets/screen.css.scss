@@ -66,7 +66,7 @@ html, body {
   left: 0;
   bottom: 0;
   width: $nav-width;
-  background: #f9f9f9;
+  background-color: $nav-bg;
   font-size: 13px;
   font-weight: bold;
 
@@ -82,35 +82,35 @@ html, body {
   // This is the logo at the top of the ToC
   &>img {
     display: block;
-    max-width: 60%;
+    max-width: 100%;
   }
 
   &>.search {
     position: relative;
 
     input {
-      background: #efefef;
+      background: $nav-bg;
       border-width: 0 0 1px 0;
-      border-color: #efefef;
+      border-color: $search-box-border-color;
       padding: 6px 0 6px 20px;
       box-sizing: border-box;
       margin: $nav-v-padding $nav-padding;
       width: $nav-width - 30;
       outline: none;
-      color: #000;
+      color: $nav-text;
       border-radius: 0; /* ios has a default border radius */
     }
 
     &:before {
       position: absolute;
       top: 17px;
-      left: 18px;
-      color: #c7c7c7;
+      left: $nav-padding;
+      color: $nav-text;
       @extend %icon-search;
     }
   }
 
-  img+.tocify {
+  img+.tocify, .lang-selector+.tocify {
     margin-top: $logo-margin;
   }
 
@@ -165,7 +165,7 @@ html, body {
   }
 
   li {
-    color: #555;
+    color: $nav-text;
     transition-property: background;
     transition-timing-function: linear;
     transition-duration: 230ms;
@@ -173,7 +173,8 @@ html, body {
 
   // This is the currently selected ToC entry
   .tocify-focus {
-    background-color: #21a5d2;
+    box-shadow: 0px 1px 0px $nav-active-shadow;
+    background-color: $nav-active-bg;
     color: $nav-active-text;
   }
 
@@ -181,8 +182,7 @@ html, body {
   // in the table of contents.
   .tocify-subheader {
     display: none; // tocify will override this when needed
-    background: none !important;
-    background-color: #eaeaea;
+    background-color: $nav-subitem-bg;
     font-weight: 500;
     .tocify-item>a {
       padding-left: $nav-padding + $nav-indent;
@@ -261,7 +261,7 @@ html, body {
   margin-left: $nav-width;
   position: relative;
   z-index: 10;
-  background-color: #fff;
+  background-color: $main-bg;
   min-height: 100%;
 
   padding-bottom: 1px; // prevent margin overflow
@@ -363,10 +363,6 @@ html, body {
     margin-top: 2em;
     border-top: 1px solid #ddd;
     background-image: linear-gradient(to bottom, #fff, #f9f9f9);
-    background: #21a5d2;
-    color: #fff;
-    text-shadow: none;
-    border: none;
   }
 
   h1:first-child, div:first-child + h1 {
@@ -628,14 +624,4 @@ html, body {
 
 .highlight, .highlight .w {
   background-color: $code-bg;
-}
-
-a.api-tool {
-    background-color: #09c;
-    color: #fff;
-    padding: 10px;
-    border-radius: 3px;
-    text-decoration: none;
-    font-weight: 100;
-    font-size: 12px;
 }
